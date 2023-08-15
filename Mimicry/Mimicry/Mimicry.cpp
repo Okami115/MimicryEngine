@@ -4,8 +4,7 @@
 int main(void)
 {
 	Window window;
-	const char* title = new char;
-	title = "Mimicry Engine";
+	const char* title = "Mimicry Engine";
 
 	bool createdWindow = window.CreateWindow(800, 600, title);
 
@@ -19,8 +18,8 @@ int main(void)
 		}
 	}
 
+	
 	glfwTerminate();
 	
-	delete title;
 	return 0;
 }
