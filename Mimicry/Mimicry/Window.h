@@ -3,11 +3,13 @@
 class Window
 {
 private:
+	GLFWwindow* windowPtr;
 
 public:
 	Window();
 	~Window();
 	GLFWwindow* CreateWindow();
-	void SwapBuffers(GLFWwindow* windowPtr);
+	bool WindowShouldClose();
+	void SwapBuffers();
 	void PollEvents();
 };

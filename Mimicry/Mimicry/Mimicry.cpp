@@ -5,14 +5,12 @@ Window window;
 
 int main(void)
 {
-    GLFWwindow* windowPtr;
-
-    windowPtr = window.CreateWindow();
+    window.CreateWindow();
 
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(windowPtr))
+    while (!window.WindowShouldClose())
     {
-        window.SwapBuffers(windowPtr);
+        window.SwapBuffers();
         window.PollEvents();
     }
 

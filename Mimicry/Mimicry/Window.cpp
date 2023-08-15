@@ -30,10 +30,16 @@ GLFWwindow* Window::CreateWindow()
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    windowPtr = window;
     return window;
 }
 
-void Window::SwapBuffers(GLFWwindow* windowPtr)
+bool Window::WindowShouldClose()
+{
+    return glfwWindowShouldClose(windowPtr);
+}
+
+void Window::SwapBuffers()
 {
     /* Swap front and back buffers */
     glfwSwapBuffers(windowPtr);
