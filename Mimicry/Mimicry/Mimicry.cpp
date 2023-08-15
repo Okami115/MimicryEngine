@@ -12,13 +12,8 @@ int main(void)
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(windowPtr))
     {
-       
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(windowPtr);
-
-        /* Poll for and process events */
-        glfwPollEvents();
+        window.SwapBuffers(windowPtr);
+        window.PollEvents();
     }
 
     glfwTerminate();

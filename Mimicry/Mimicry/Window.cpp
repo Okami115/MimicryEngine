@@ -32,3 +32,15 @@ GLFWwindow* Window::CreateWindow()
 
     return window;
 }
+
+void Window::SwapBuffers(GLFWwindow* windowPtr)
+{
+    /* Swap front and back buffers */
+    glfwSwapBuffers(windowPtr);
+}
+
+void Window::PollEvents()
+{
+    /* Poll for and process events */
+    glfwPollEvents();
+}
