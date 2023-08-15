@@ -11,27 +11,27 @@ Window::~Window()
 
 }
 
-GLFWwindow* Window::CreateWindow()
+bool Window::CreateWindow()
 {
     GLFWwindow* window;
 
     /* Initialize the library */
     if (!glfwInit())
-        return nullptr;
+        return false;
 
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
-        return nullptr;
+        return false;
     }
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
     windowPtr = window;
-    return window;
+    return true;
 }
 
 bool Window::WindowShouldClose()
