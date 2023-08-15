@@ -1,5 +1,6 @@
 #include "../include/glfw3.h"
 #include "Window.h"
+#include <string>
 
 Window::Window()
 {
@@ -11,7 +12,7 @@ Window::~Window()
 
 }
 
-bool Window::CreateWindow()
+bool Window::CreateWindow(int width, int height, const char* title)
 {
     GLFWwindow* window;
 
@@ -20,7 +21,7 @@ bool Window::CreateWindow()
         return false;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (!window)
     {
         glfwTerminate();

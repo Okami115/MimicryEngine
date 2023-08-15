@@ -1,4 +1,5 @@
 #pragma once
+#include <string>;
 
 class Window
 {
@@ -8,7 +9,7 @@ private:
 public:
 	Window();
 	~Window();
-	bool CreateWindow();
+	bool CreateWindow(int width, int height, const char* title);
 	bool WindowShouldClose();
 	void SwapBuffers();
 	void PollEvents();

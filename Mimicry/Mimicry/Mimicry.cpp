@@ -4,7 +4,10 @@
 int main(void)
 {
 	Window window;
-	bool createdWindow = window.CreateWindow();
+	const char* title = new char;
+	title = "Mimicry Engine";
+
+	bool createdWindow = window.CreateWindow(800, 600, title);
 
 	if (createdWindow)
 	{
@@ -17,5 +20,7 @@ int main(void)
 	}
 
 	glfwTerminate();
+	
+	delete title;
 	return 0;
 }
