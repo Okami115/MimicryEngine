@@ -1,9 +1,9 @@
 #include "Renderer.h"
 #include "../include/glfw3.h"
 
-
 Renderer::Renderer()
 {
+	
 }
 
 Renderer::~Renderer()

@@ -1,5 +1,6 @@
-#include "../include/glfw3.h"
+#include "GLEW/glew.h"
 #include "Window.h"
+#include "glfw3.h"
 
 int main(void)
 {
