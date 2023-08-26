@@ -23,6 +23,8 @@ private:
     unsigned int vertexShader;
 #pragma endregion
 
+    unsigned int shaderProgram;
+
     unsigned int VBO;
 
     float vertices[9] = {
