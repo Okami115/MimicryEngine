@@ -1,6 +1,8 @@
-#include "../include/glfw3.h"
+#include "GLEW/glew.h"
 #include "Window.h"
+#include "glfw3.h"
 #include <string>
+#include <iostream>
 
 Window::Window()
 {
@@ -20,6 +22,7 @@ bool Window::CreateWindow(int width, int height, const char* title)
     if (!glfwInit())
         return false;
 
+
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (!window)
@@ -31,7 +34,13 @@ bool Window::CreateWindow(int width, int height, const char* title)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    if (glewInit() != GLEW_OK)
+        std::cout << "Error!" << std::endl;
+
+    
+
     windowPtr = window;
+
     return true;
 }
 
