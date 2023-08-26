@@ -13,19 +13,22 @@ int main(void)
 
 	if (createdWindow)
 	{
+		renderer.InitRenderer();
+
 		/* Loop until the user closes the window */
 		while (!window.WindowShouldClose())
 		{
+			renderer.ClearFrame();
+			renderer.RenderFrame();
 			window.SwapBuffers();
 			window.PollEvents();
-			renderer.RenderFrame();
-			
+
 		}
 	}
 
 
-	
+
 	glfwTerminate();
-	
+
 	return 0;
 }

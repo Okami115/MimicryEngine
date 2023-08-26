@@ -40,6 +40,7 @@ bool Window::CreateWindow(int width, int height, const char* title)
     
 
     windowPtr = window;
+
     return true;
 }
 
