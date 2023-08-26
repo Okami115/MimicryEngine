@@ -37,6 +37,8 @@ bool Window::CreateWindow(int width, int height, const char* title)
     if (glewInit() != GLEW_OK)
         std::cout << "Error!" << std::endl;
 
+    
+
     windowPtr = window;
     return true;
 }
