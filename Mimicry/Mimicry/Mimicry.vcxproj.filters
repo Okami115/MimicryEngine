@@ -39,6 +39,9 @@
     <ClCompile Include="..\src\Engine\Renderer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Engine\Entity2D.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine\Entity.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="..\src\BaseGame\BaseGame.h">
       <Filter>BaseGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Engine\Entity2D.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
