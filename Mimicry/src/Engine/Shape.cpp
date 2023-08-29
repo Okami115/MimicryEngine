@@ -1,9 +1,11 @@
 #include "Shape.h"
 
-Shape::Shape()
+Shape::Shape(Renderer* renderer)
 {
+	this->renderer = renderer;
 }
 
 Shape::~Shape()
 {
+
 }
