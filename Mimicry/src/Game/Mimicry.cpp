@@ -1,6 +1,6 @@
 #include "GLEW/glew.h"
-#include "Window.h"
-#include "Renderer.h"
+#include "Engine/Window.h"
+#include "Engine/Renderer.h"
 #include "glfw3.h"
 
 int main(void)
