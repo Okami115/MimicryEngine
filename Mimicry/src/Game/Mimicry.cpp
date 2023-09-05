@@ -1,34 +1,10 @@
-#include "GLEW/glew.h"
-#include "Engine/Window.h"
-#include "Engine/Renderer.h"
-#include "glfw3.h"
+#include "../BaseGame/BaseGame.h"
 
 int main(void)
 {
-	Window window;
-	Renderer renderer;
-	const char* title = "Mimicry Engine";
+	BaseGame baseGame;
 
-	bool createdWindow = window.CreateWindow(800, 600, title);
-
-	if (createdWindow)
-	{
-		renderer.InitRenderer();
-
-		/* Loop until the user closes the window */
-		while (!window.WindowShouldClose())
-		{
-			renderer.ClearFrame();
-			renderer.RenderFrame();
-			window.SwapBuffers();
-			window.PollEvents();
-
-		}
-	}
+	baseGame.Run();
 
 
-
-	glfwTerminate();
-
-	return 0;
 }
