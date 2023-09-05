@@ -24,9 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Entity.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Engine\Window.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -42,7 +39,10 @@
     <ClCompile Include="..\src\Engine\Entity2D.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Shape.cpp">
+    <ClCompile Include="..\src\Engine\Shape.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Engine\Entity.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClInclude Include="..\src\Engine\Entity2D.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Shape.h">
+    <ClInclude Include="..\src\Engine\Shape.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

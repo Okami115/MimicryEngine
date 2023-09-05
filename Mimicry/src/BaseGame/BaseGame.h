@@ -2,6 +2,7 @@
 #include "../Engine/Window.h"
 #include "../Engine/Renderer.h"
 
+
 class BaseGame
 {
 private: 

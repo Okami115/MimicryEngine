@@ -17,19 +17,23 @@ void BaseGame::Run()
 	{
 		renderer.InitRenderer();
 		Init();
+		
+		Shape* shapessdss = new Shape();
+		renderer.InitShape(*shapessdss);
 
 		while (!window.WindowShouldClose())
 		{
 			renderer.ClearFrame();
 			renderer.RenderFrame();
+			//Update();
 			window.SwapBuffers();
 			window.PollEvents();
-			Update();
 		}
+		Deinit();
+		delete shapessdss;
 	}
 
 
-	Deinit();
 	glfwTerminate();
 }
 

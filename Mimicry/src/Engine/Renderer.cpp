@@ -15,53 +15,61 @@ Renderer::~Renderer()
 
 void Renderer::InitRenderer()
 {
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), vertices, GL_STATIC_DRAW);
+	shaderProgram = glCreateProgram();
+}
+
+void Renderer::InitShape(Shape& shape)
+{
+	glGenBuffers(1, &shape.VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, shape.VBO);
+
+	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), shape.vertices, GL_STATIC_DRAW);
 
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, shape.VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 12, shape.vertices , GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
 	glGenBuffers(1, &EBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * 6, shape.indices, GL_STATIC_DRAW);
 
-	InitVertexShader();
+	InitVertexShader(shape);
 
-	InitFragmentShader();
+	InitFragmentShader(shape);
 
-	shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
+	glAttachShader(shaderProgram, shape.vertexShader);
+	glAttachShader(shaderProgram, shape.fragmentShader);
 	glLinkProgram(shaderProgram);
 
 	glUseProgram(shaderProgram);
 
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+	glDeleteShader(shape.vertexShader);
+	glDeleteShader(shape.fragmentShader);
 }
 
-void Renderer::InitVertexShader()
+void Renderer::InitVertexShader(Shape& shape)
 {
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glCompileShader(vertexShader);
+	const char* shaderSource = shape.GetVertexShaderSrc();
 
-	CompileErrorCheck(vertexShader);
+	shape.vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(shape.vertexShader, 1, &shaderSource, NULL);
+	glCompileShader(shape.vertexShader);
+
+	CompileErrorCheck(shape.vertexShader);
 }
 
-void Renderer::InitFragmentShader()
+void Renderer::InitFragmentShader(Shape& shape)
 {
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(fragmentShader);
+	const char* shaderSource = shape.GetFragmentShaderSrc();
+	shape.fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(shape.fragmentShader, 1, &shaderSource, NULL);
+	glCompileShader(shape.fragmentShader);
 
-	CompileErrorCheck(fragmentShader);
+	CompileErrorCheck(shape.fragmentShader);
 }
 
 void Renderer::ClearFrame()
@@ -75,6 +83,12 @@ void Renderer::RenderFrame()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	
+}
+
+void Renderer::RenderShape(Shape shape)
+{
+
 }
 
 void Renderer::CompileErrorCheck(unsigned int shader)
