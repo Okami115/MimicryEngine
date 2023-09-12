@@ -18,7 +18,5 @@ public:
 	void Run();
 	BaseGame();
 	~BaseGame();
-
-	void Run();
 };
 

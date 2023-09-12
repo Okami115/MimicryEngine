@@ -13,6 +13,8 @@ Shape::Shape()
 		0, 1, 3,
 		1, 2, 3
 	};
+
+	//this->renderer = renderer;
 }
 
 Shape::~Shape()

@@ -22,11 +22,7 @@ private:
 		"}\0";
 #pragma endregion
 
-
-
-
-
-    Renderer* renderer;
+    //Renderer* renderer;
 
 public:
 	unsigned int VBO;

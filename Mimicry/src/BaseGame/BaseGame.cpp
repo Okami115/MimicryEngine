@@ -1,5 +1,6 @@
 #include "BaseGame/BaseGame.h"
 #include "glfw3.h"
+#include "Engine/Shape.h"
 
 BaseGame::BaseGame()
 {
@@ -17,6 +18,8 @@ void BaseGame::Run()
 
 	if (createdWindow)
 	{
+		Shape myShape = Shape();
+		renderer.InitShape(myShape);
 		renderer.InitRenderer();
 		Init();
 
@@ -39,7 +42,7 @@ void BaseGame::Run()
 	{
 		renderer.InitRenderer();
 		Init();
-		
+
 		Shape* shapessdss = new Shape();
 		renderer.InitShape(*shapessdss);
 

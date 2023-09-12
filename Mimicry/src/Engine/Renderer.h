@@ -1,5 +1,5 @@
 #pragma once
-#include "Engine/Shape.h"
+#include "Shape.h"
 
 class Renderer
 {
@@ -41,14 +41,6 @@ private:
 		0,1,3,
 		1,2,3
 	};
-
-
-	unsigned int shaderProgram;
-
-
-	unsigned int VAO;
-	unsigned int EBO;
-
 
 
 
