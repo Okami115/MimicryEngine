@@ -148,10 +148,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\BaseGame\BaseGame.cpp" />
+    <ClCompile Include="..\src\Engine\Entity.cpp" />
     <ClCompile Include="..\src\Engine\Entity2D.cpp" />
     <ClCompile Include="..\src\Engine\Renderer.cpp" />
+    <ClCompile Include="..\src\Engine\Shape.cpp" />
     <ClCompile Include="..\src\Engine\Window.cpp" />
-    <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\Game\Mimicry.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="..\src\Engine\Entity.h" />
     <ClInclude Include="..\src\Engine\Entity2D.h" />
     <ClInclude Include="..\src\Engine\Renderer.h" />
+    <ClInclude Include="..\src\Engine\Shape.h" />
     <ClInclude Include="..\src\Engine\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

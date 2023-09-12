@@ -2,6 +2,9 @@
 
 int main(void)
 {
-	BaseGame bg;
-	bg.Run();
+	BaseGame baseGame;
+
+	baseGame.Run();
+
+
 }

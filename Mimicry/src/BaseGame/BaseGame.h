@@ -7,6 +7,7 @@ class BaseGame
 private:
 	Window window;
 	Renderer renderer;
+	const char* title = "Mimicry Engine";
 
 protected:
 	virtual void Init();
@@ -18,6 +19,6 @@ public:
 	BaseGame();
 	~BaseGame();
 
-
+	void Run();
 };
 
