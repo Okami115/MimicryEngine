@@ -3,7 +3,7 @@
 
 class Entity
 {
-private:
+protected:
 	Renderer* renderer;
 
 

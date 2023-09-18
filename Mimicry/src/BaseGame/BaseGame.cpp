@@ -18,13 +18,13 @@ void BaseGame::Run()
 
 	if (createdWindow)
 	{
-		Shape myShape = Shape(&renderer);
+		Shape* myShape = new Shape(&renderer);
 		Init();
 
 		while (!window.WindowShouldClose())
 		{
 			renderer.ClearFrame();
-			myShape.DrawShape();
+			myShape->Draw2D();
 			window.SwapBuffers();
 			window.PollEvents();
 			Update();

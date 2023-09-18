@@ -84,7 +84,7 @@ void Renderer::ClearFrame()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::DrawShape(unsigned int& shaderProgram, unsigned int& VAO)
+void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO)
 {
 	glUseProgram(shaderProgram);
 	glBindVertexArray(VAO);

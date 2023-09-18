@@ -19,7 +19,7 @@ public:
 
     void ClearFrame();
 
-	void DrawShape(unsigned int& shaderProgram, unsigned int& VAO);
+	void DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO);
 
     void CompileErrorCheck(unsigned int& shader);
 };

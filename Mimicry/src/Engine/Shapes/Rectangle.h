@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/Shape.h"
 
-class Rectangle : Shape
+class Rectangle : public Shape
 {
 public:
 	Rectangle(Renderer* renderer);
