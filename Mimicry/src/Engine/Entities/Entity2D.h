@@ -3,7 +3,7 @@
 
 class Entity2D : public Entity
 {
-private:
+protected:
 #pragma region FRAGMENT SHADER
 	const char* fragmentShaderSource = "#version 330 core\n"
 		"out vec4 FragColor;\n"
@@ -32,9 +32,11 @@ private:
 	unsigned int shaderProgram;
 
 	float* vertices;
+	int verticesSize;
 
 	int vertexAttributeSize = 3;
 	unsigned int* indices;
+	int indicesSize;
 
 
 public:

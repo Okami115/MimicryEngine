@@ -19,8 +19,8 @@ void Entity2D::Init()
 	renderer->GenVAO(VAO, 1);
 	renderer->GenBufferObjects(VBO, 1);
 	renderer->GenBufferObjects(EBO, 1);
-	renderer->LoadVertexData(VAO, VBO, vertices, 12);
-	renderer->LoadIndexData(EBO, indices, 6);
+	renderer->LoadVertexData(VAO, VBO, vertices, verticesSize);
+	renderer->LoadIndexData(EBO, indices, indicesSize);
 	renderer->LoadVertexAttributes(VAO, VBO, vertices);
 }
 
@@ -53,7 +53,6 @@ void Entity2D::SetIndices(unsigned int indices[])
 {
 	this->indices = indices;
 }
-
 
 void Entity2D::Draw2D()
 {

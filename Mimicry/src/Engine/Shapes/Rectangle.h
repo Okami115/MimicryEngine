@@ -7,7 +7,6 @@ public:
 	Rectangle(Renderer* renderer);
 	~Rectangle();
 
-	void DrawRectangle();
 
 private:
 
