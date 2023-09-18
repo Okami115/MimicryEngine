@@ -26,7 +26,9 @@ private:
     Renderer* renderer;
 
 public:
-	unsigned int VBO;	//Vertex buffer object, wherever we can we try to send as much data as possible at once
+	unsigned int VBO;	//Vertex buffer object, stores vertices data
+	unsigned int VAO;	//Vertex Array object, stores vertex attributes
+	unsigned int EBO;	//Element Buffer Objects, stores indices to specify to OpenGL what vertices t draw
 
 	unsigned int vertexShader;
 	unsigned int fragmentShader;

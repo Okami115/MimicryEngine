@@ -16,10 +16,17 @@ Shape::Shape(Renderer* renderer)
 
 	this->renderer = renderer;
 
-	renderer->GenBuffer(VBO, 1);
-	renderer->LoadVertexData(VBO, vertices);
-	renderer->InitVertexShader(vertexShaderSource, vertexShader,vertexAttributeSize,shaderProgram);
+	renderer->CreateShaderProgram(shaderProgram);
+	renderer->InitVertexShader(vertexShaderSource, vertexShader, vertexAttributeSize, shaderProgram);
 	renderer->InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
+
+	renderer->GenVAO(VAO, 1);
+	renderer->GenBufferObjects(VBO, 1);
+	renderer->GenBufferObjects(EBO, 1);
+	renderer->LoadVertexData(VAO, VBO, vertices);
+	renderer->LoadIndexData(EBO, indices);
+	renderer->LoadVertexAttributes(VAO, VBO, vertices);
+	
 }
 
 Shape::~Shape()
@@ -49,5 +56,5 @@ void Shape::SetIndices(unsigned int indices[])
 
 void Shape::DrawShape()
 {
-
+	renderer->DrawShape(shaderProgram, VAO);
 }
