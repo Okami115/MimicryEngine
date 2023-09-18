@@ -62,7 +62,7 @@ void Renderer::InitVertexShader(const char* shaderSource,unsigned int& vertexSha
 	glDeleteShader(vertexShader);
 }
 
-void Renderer::InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, int vertexAttributeSize, unsigned int shaderProgram)
+void Renderer::InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, unsigned int shaderProgram)
 {
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragmentShader, 1, &shaderSource, NULL);
@@ -80,16 +80,15 @@ void Renderer::InitFragmentShader(const char* shaderSource, unsigned int& fragme
 
 void Renderer::ClearFrame()
 {
-
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::RenderFrame()
+void Renderer::DrawShape(unsigned int& shaderProgram, unsigned int& VAO)
 {
-	glClear(GL_COLOR_BUFFER_BIT);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glUseProgram(shaderProgram);
+	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	
 }
 
 void Renderer::CompileErrorCheck(unsigned int shader)

@@ -1,5 +1,4 @@
 #pragma once
-#include "Shape.h"
 
 class Renderer
 {
@@ -48,14 +47,13 @@ public:
 	void LoadVertexData(unsigned int& VBO, float* vertices);
 	//void InitShape(Shape& shape);
     void InitVertexShader(const char* shaderSource, unsigned int& vertexShader, int vertexAttributeSize, unsigned int shaderProgram);
-    void InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, int vertexAttributeSize, unsigned int shaderProgram);
+    void InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, unsigned int shaderProgram);
 
 	void GenBuffer(unsigned int buffer, int bufferID);
 
     void ClearFrame();
-	void RenderFrame();
 
-	void RenderShape();
+	void DrawShape(unsigned int& shaderProgram, unsigned int& VAO);
 
     void CompileErrorCheck(unsigned int shader);
 };

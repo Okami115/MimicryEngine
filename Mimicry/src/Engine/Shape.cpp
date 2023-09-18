@@ -1,6 +1,6 @@
 #include "Shape.h"
 
-Shape::Shape()
+Shape::Shape(Renderer* renderer)
 {
 	vertices = new float[12] {
 	0.5f, 0.5f, 0.0f,
@@ -14,7 +14,12 @@ Shape::Shape()
 		1, 2, 3
 	};
 
-	//this->renderer = renderer;
+	this->renderer = renderer;
+
+	renderer->GenBuffer(VBO, 1);
+	renderer->LoadVertexData(VBO, vertices);
+	renderer->InitVertexShader(vertexShaderSource, vertexShader,vertexAttributeSize,shaderProgram);
+	renderer->InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
 }
 
 Shape::~Shape()
@@ -40,4 +45,9 @@ void Shape::SetVertices(float vertices[])
 void Shape::SetIndices(unsigned int indices[])
 {
 	//this->indices = indices;
+}
+
+void Shape::DrawShape()
+{
+
 }

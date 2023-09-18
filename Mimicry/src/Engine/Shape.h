@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Renderer.h"
 
 class Shape : Entity
 {
@@ -22,7 +23,7 @@ private:
 		"}\0";
 #pragma endregion
 
-    //Renderer* renderer;
+    Renderer* renderer;
 
 public:
 	unsigned int VBO;	//Vertex buffer object, wherever we can we try to send as much data as possible at once
@@ -30,13 +31,15 @@ public:
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
 
+	unsigned int shaderProgram;
+
 	float* vertices;
 
 	int vertexAttributeSize = 3; 
 	unsigned int* indices;
 
 
-	Shape();
+	Shape(Renderer* renderer);
 	~Shape();
 
 	const char* GetVertexShaderSrc();
@@ -44,5 +47,7 @@ public:
 
 	void SetVertices(float vertices[]);
 	void SetIndices(unsigned int indices[]);
+
+	void DrawShape();
 };
 
