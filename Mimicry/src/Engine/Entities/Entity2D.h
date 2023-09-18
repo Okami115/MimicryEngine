@@ -41,6 +41,8 @@ public:
 	Entity2D(Renderer* renderer);
 	~Entity2D();
 
+	void Init();
+
 	const char* GetVertexShaderSrc();
 	const char* GetFragmentShaderSrc();
 	void SetVertexShaderSrc(char* source);
