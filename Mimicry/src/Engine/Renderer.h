@@ -24,9 +24,6 @@ private:
 	unsigned int vertexShader;
 #pragma endregion
 
-	unsigned int shaderProgram;
-
-	unsigned int VBO;
 	unsigned int VAO;
 	unsigned int EBO;
 
@@ -48,15 +45,17 @@ public:
 	Renderer();
 	~Renderer();
 
-    void InitRenderer();
-	void InitShape(Shape& shape);
-    void InitVertexShader(Shape& shape);
-    void InitFragmentShader(Shape& shape);
+	void LoadVertexData(unsigned int& VBO, float* vertices);
+	//void InitShape(Shape& shape);
+    void InitVertexShader(const char* shaderSource, unsigned int& vertexShader, int vertexAttributeSize, unsigned int shaderProgram);
+    void InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, int vertexAttributeSize, unsigned int shaderProgram);
+
+	void GenBuffer(unsigned int buffer, int bufferID);
 
     void ClearFrame();
 	void RenderFrame();
 
-	void RenderShape(Shape shape);
+	void RenderShape();
 
     void CompileErrorCheck(unsigned int shader);
 };

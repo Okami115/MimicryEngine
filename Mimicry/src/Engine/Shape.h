@@ -25,12 +25,14 @@ private:
     //Renderer* renderer;
 
 public:
-	unsigned int VBO;
+	unsigned int VBO;	//Vertex buffer object, wherever we can we try to send as much data as possible at once
+
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
 
 	float* vertices;
 
+	int vertexAttributeSize = 3; 
 	unsigned int* indices;
 
 
