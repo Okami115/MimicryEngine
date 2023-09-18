@@ -1,6 +1,7 @@
 #include "BaseGame/BaseGame.h"
 #include "glfw3.h"
 #include "Engine/Shapes/Rectangle.h"
+#include "Engine/Shapes/Triangle.h"
 
 BaseGame::BaseGame()
 {
@@ -25,13 +26,13 @@ void BaseGame::Run()
 
 
 	unsigned int shapeIndices[6]{
-		0, 1, 3,
-		1, 2, 3
+		4, 1, 2,
+		0,2,3
 	};
 
 	if (createdWindow)
 	{
-		Rectangle* myShape = new Rectangle(&renderer);
+		Triangle* myShape = new Triangle(&renderer);
 		myShape->SetVertices(shapeVertices);
 		myShape->SetIndices(shapeIndices);
 		myShape->Init();

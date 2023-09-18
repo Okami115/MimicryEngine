@@ -54,6 +54,9 @@
     <ClCompile Include="..\src\Engine\Entities\Entity2D.cpp">
       <Filter>Engine\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Engine\Shapes\Triangle.cpp">
+      <Filter>Engine\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine\Renderer.h">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Engine\Entities\Entity2D.h">
       <Filter>Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Engine\Shapes\Triangle.h">
+      <Filter>Engine\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

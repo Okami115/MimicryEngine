@@ -153,6 +153,7 @@
     <ClCompile Include="..\src\Engine\Renderer.cpp" />
     <ClCompile Include="..\src\Engine\Shape.cpp" />
     <ClCompile Include="..\src\Engine\Shapes\Rectangle.cpp" />
+    <ClCompile Include="..\src\Engine\Shapes\Triangle.cpp" />
     <ClCompile Include="..\src\Engine\Window.cpp" />
     <ClCompile Include="..\src\Game\Mimicry.cpp" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="..\src\Engine\Renderer.h" />
     <ClInclude Include="..\src\Engine\Shape.h" />
     <ClInclude Include="..\src\Engine\Shapes\Rectangle.h" />
+    <ClInclude Include="..\src\Engine\Shapes\Triangle.h" />
     <ClInclude Include="..\src\Engine\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
