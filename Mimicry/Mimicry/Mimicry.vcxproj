@@ -148,8 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\BaseGame\BaseGame.cpp" />
-    <ClCompile Include="..\src\Engine\Entity.cpp" />
-    <ClCompile Include="..\src\Engine\Entity2D.cpp" />
+    <ClCompile Include="..\src\Engine\Entities\Entity.cpp" />
+    <ClCompile Include="..\src\Engine\Entities\Entity2D.cpp" />
     <ClCompile Include="..\src\Engine\Renderer.cpp" />
     <ClCompile Include="..\src\Engine\Shape.cpp" />
     <ClCompile Include="..\src\Engine\Shapes\Rectangle.cpp" />
@@ -158,8 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame\BaseGame.h" />
-    <ClInclude Include="..\src\Engine\Entity.h" />
-    <ClInclude Include="..\src\Engine\Entity2D.h" />
+    <ClInclude Include="..\src\Engine\Entities\Entity.h" />
+    <ClInclude Include="..\src\Engine\Entities\Entity2D.h" />
     <ClInclude Include="..\src\Engine\Renderer.h" />
     <ClInclude Include="..\src\Engine\Shape.h" />
     <ClInclude Include="..\src\Engine\Shapes\Rectangle.h" />

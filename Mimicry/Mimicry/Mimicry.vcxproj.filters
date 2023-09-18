@@ -25,6 +25,9 @@
     <Filter Include="Engine\Shapes">
       <UniqueIdentifier>{6f39ae70-862d-4fae-b8c1-ccfd4962077b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Entities">
+      <UniqueIdentifier>{5821d1cb-55d7-4bc0-8f35-780cf16c0b97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine\Window.cpp">
@@ -39,23 +42,20 @@
     <ClCompile Include="..\src\Engine\Renderer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Engine\Entity2D.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Engine\Shape.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Engine\Entity.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Engine\Shapes\Rectangle.cpp">
       <Filter>Engine\Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Engine\Entities\Entity.cpp">
+      <Filter>Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Engine\Entities\Entity2D.cpp">
+      <Filter>Engine\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Engine\Entity.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Engine\Renderer.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -65,14 +65,17 @@
     <ClInclude Include="..\src\BaseGame\BaseGame.h">
       <Filter>BaseGame</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Engine\Entity2D.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Engine\Shape.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Engine\Shapes\Rectangle.h">
       <Filter>Engine\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Engine\Entities\Entity.h">
+      <Filter>Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Engine\Entities\Entity2D.h">
+      <Filter>Engine\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

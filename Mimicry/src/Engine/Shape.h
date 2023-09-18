@@ -1,6 +1,6 @@
 #pragma once
-#include "Entity.h"
-#include "Renderer.h"
+#include "Entities/Entity.h"
+#include "Engine/Renderer.h"
 
 class Shape : Entity
 {

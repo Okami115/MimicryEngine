@@ -4,7 +4,7 @@
 class Entity2D : Entity
 {
 public:
-	Entity2D();
+	Entity2D(Renderer* renderer);
 	~Entity2D();
 
 private:

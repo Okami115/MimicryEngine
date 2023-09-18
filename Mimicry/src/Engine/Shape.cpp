@@ -1,6 +1,6 @@
 #include "Shape.h"
 
-Shape::Shape(Renderer* renderer)
+Shape::Shape(Renderer* renderer) : Entity(renderer)
 {
 	vertices = new float[12] {
 	0.5f, 0.5f, 0.0f,
