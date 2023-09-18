@@ -6,8 +6,8 @@ public:
 	Renderer();
 	~Renderer();
 
-	void LoadVertexData(unsigned int& VAO, unsigned int& VBO, float* vertices);
-	void LoadIndexData(unsigned int& EBO, unsigned int* indices);
+	void LoadVertexData(unsigned int& VAO, unsigned int& VBO, float* vertices, int verticesSize);
+	void LoadIndexData(unsigned int& EBO, unsigned int* indices, int indicesSize);
 	void LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices);
 
 	void CreateShaderProgram(unsigned int& shaderProgram);

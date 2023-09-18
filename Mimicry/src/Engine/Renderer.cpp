@@ -23,18 +23,18 @@ void Renderer::GenVAO(unsigned int& buffer, int bufferID)
 	glGenVertexArrays(buffer, &buffer);
 }
 
-void Renderer::LoadVertexData(unsigned int& VAO,unsigned int& VBO, float* vertices)
+void Renderer::LoadVertexData(unsigned int& VAO,unsigned int& VBO, float* vertices, int verticesSize)
 {
 	glBindVertexArray(VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * verticesSize, vertices, GL_STATIC_DRAW);
 }
 
-void Renderer::LoadIndexData(unsigned int& EBO, unsigned int* indices)
+void Renderer::LoadIndexData(unsigned int& EBO, unsigned int* indices, int indicesSize)
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * indicesSize, indices, GL_STATIC_DRAW);
 }
 
 void Renderer::LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices)

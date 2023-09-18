@@ -23,8 +23,8 @@ Shape::Shape(Renderer* renderer)
 	renderer->GenVAO(VAO, 1);
 	renderer->GenBufferObjects(VBO, 1);
 	renderer->GenBufferObjects(EBO, 1);
-	renderer->LoadVertexData(VAO, VBO, vertices);
-	renderer->LoadIndexData(EBO, indices);
+	renderer->LoadVertexData(VAO, VBO, vertices, 12);
+	renderer->LoadIndexData(EBO, indices, 6);
 	renderer->LoadVertexAttributes(VAO, VBO, vertices);
 	
 }
