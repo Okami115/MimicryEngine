@@ -44,6 +44,16 @@ const char* Shape::GetFragmentShaderSrc()
 	return fragmentShaderSource;
 }
 
+void Shape::SetVertexShaderSrc(char* source)
+{	
+	vertexShaderSource = source;
+}
+
+void Shape::SetFragmentShaderSrc(char* source)
+{
+	fragmentShaderSource = source;
+}
+
 void Shape::SetVertices(float vertices[])
 {
 	//this->vertices = vertices;

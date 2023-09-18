@@ -22,6 +22,9 @@
     <Filter Include="Game">
       <UniqueIdentifier>{56803674-92db-441a-95ac-9808eb09fca9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Shapes">
+      <UniqueIdentifier>{6f39ae70-862d-4fae-b8c1-ccfd4962077b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine\Window.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="..\src\Engine\Entity.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Engine\Shapes\Rectangle.cpp">
+      <Filter>Engine\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine\Entity.h">
@@ -64,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Engine\Shape.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Engine\Shapes\Rectangle.h">
+      <Filter>Engine\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

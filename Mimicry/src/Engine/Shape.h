@@ -46,6 +46,8 @@ public:
 
 	const char* GetVertexShaderSrc();
 	const char* GetFragmentShaderSrc();
+	void SetVertexShaderSrc(char* source);
+	void SetFragmentShaderSrc(char* source);
 
 	void SetVertices(float vertices[]);
 	void SetIndices(unsigned int indices[]);
