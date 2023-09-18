@@ -26,13 +26,13 @@ void BaseGame::Run()
 
 
 	unsigned int shapeIndices[6]{
-		4, 1, 2,
-		0,2,3
+		0, 1, 3,
+		1,2,3
 	};
 
 	if (createdWindow)
 	{
-		Triangle* myShape = new Triangle(&renderer);
+		Rectangle* myShape = new Rectangle(&renderer);
 		myShape->SetVertices(shapeVertices);
 		myShape->SetIndices(shapeIndices);
 		myShape->Init();
