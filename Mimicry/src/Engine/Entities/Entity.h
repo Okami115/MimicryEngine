@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/Renderer.h"
 
-class Entity
+class __declspec(dllexport)Entity
 {
 protected:
 	Renderer* renderer;
@@ -9,5 +9,6 @@ protected:
 
 public:
 	Entity(Renderer* renderer);
+	Entity();
 	~Entity();
 };

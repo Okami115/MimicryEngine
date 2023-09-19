@@ -2,14 +2,13 @@
 #include "Engine/Window.h"
 #include "Engine/Renderer.h"
 
-class BaseGame
+class __declspec(dllexport) BaseGame
 {
-private:
+protected:
 	Window window;
 	Renderer renderer;
 	const char* title = "Mimicry Engine";
 
-protected:
 	virtual void Init();
 	virtual void Update();
 	virtual void Deinit();

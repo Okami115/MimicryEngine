@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/Shape.h"
 
-class Rectangle : public Shape
+class __declspec(dllexport) Rectangle : public Shape
 {
 public:
 	Rectangle(Renderer* renderer);

@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 
-class Entity2D : public Entity
+class __declspec(dllexport) Entity2D : public Entity
 {
 protected:
 #pragma region FRAGMENT SHADER
@@ -41,6 +41,7 @@ protected:
 
 public:
 	Entity2D(Renderer* renderer);
+	Entity2D();
 	~Entity2D();
 
 	void Init();

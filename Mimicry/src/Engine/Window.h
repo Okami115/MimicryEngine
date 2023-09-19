@@ -2,7 +2,7 @@
 #include <string>;
 #include "glfw3.h"
 
-class Window
+class __declspec(dllexport) Window
 {
 private:
 	GLFWwindow* windowPtr;

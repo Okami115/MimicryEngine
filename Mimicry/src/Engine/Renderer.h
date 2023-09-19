@@ -1,6 +1,6 @@
 #pragma once
 
-class Renderer
+class __declspec(dllexport) Renderer
 {
 public:
 	Renderer();

@@ -6,6 +6,11 @@ Triangle::Triangle(Renderer* renderer) : Entity2D(renderer)
 	indicesSize = 3;
 }
 
+Triangle::Triangle() : Entity2D()
+{
+
+}
+
 Triangle::~Triangle()
 {
 
