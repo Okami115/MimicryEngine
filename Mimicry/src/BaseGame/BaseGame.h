@@ -5,12 +5,11 @@
 
 class MimicryEngine_API BaseGame
 {
-private:
+protected:
 	Window window;
 	Renderer renderer;
 	const char* title = "Mimicry Engine";
 
-protected:
 	virtual void Init();
 	virtual void Update();
 	virtual void Deinit();
