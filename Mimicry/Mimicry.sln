@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.33424.131
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mimicry", "Mimicry\Mimicry.vcxproj", "{27F328B5-CEF9-494F-94B4-99646C858E96}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "..\Game\Game.vcxproj", "{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{27F328B5-CEF9-494F-94B4-99646C858E96} = {27F328B5-CEF9-494F-94B4-99646C858E96}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{27F328B5-CEF9-494F-94B4-99646C858E96}.Release|x64.Build.0 = Release|x64
 		{27F328B5-CEF9-494F-94B4-99646C858E96}.Release|x86.ActiveCfg = Release|Win32
 		{27F328B5-CEF9-494F-94B4-99646C858E96}.Release|x86.Build.0 = Release|Win32
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Debug|x64.ActiveCfg = Debug|x64
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Debug|x64.Build.0 = Debug|x64
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Debug|x86.ActiveCfg = Debug|Win32
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Debug|x86.Build.0 = Debug|Win32
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Release|x64.ActiveCfg = Release|x64
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Release|x64.Build.0 = Release|x64
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Release|x86.ActiveCfg = Release|Win32
+		{52D640C6-9BBB-4F5A-8EF2-2DA0BC58777C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
