@@ -1,14 +1,16 @@
 #pragma once
+#include "Engine/Exports.h"
 #include "Engine/Window.h"
 #include "Engine/Renderer.h"
 
-class __declspec(dllexport) BaseGame
+class MimicryEngine_API BaseGame
 {
-protected:
+private:
 	Window window;
 	Renderer renderer;
 	const char* title = "Mimicry Engine";
 
+protected:
 	virtual void Init();
 	virtual void Update();
 	virtual void Deinit();

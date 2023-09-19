@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 
-class __declspec(dllexport) Entity2D : public Entity
+class MimicryEngine_API Entity2D : public Entity
 {
 protected:
 #pragma region FRAGMENT SHADER
@@ -41,7 +41,6 @@ protected:
 
 public:
 	Entity2D(Renderer* renderer);
-	Entity2D();
 	~Entity2D();
 
 	void Init();

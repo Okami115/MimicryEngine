@@ -83,5 +83,8 @@
     <ClInclude Include="..\src\Engine\Shapes\Triangle.h">
       <Filter>Engine\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Engine\Exports.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

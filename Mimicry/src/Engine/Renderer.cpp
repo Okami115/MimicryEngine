@@ -88,7 +88,6 @@ void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO)
 {
 	glUseProgram(shaderProgram);
 	glBindVertexArray(VAO);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 

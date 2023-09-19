@@ -1,6 +1,7 @@
 #pragma once
+#include "Exports.h"
 
-class __declspec(dllexport) Renderer
+class MimicryEngine_API Renderer
 {
 public:
 	Renderer();

@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/Renderer.h"
 
-class __declspec(dllexport)Entity
+class MimicryEngine_API Entity
 {
 protected:
 	Renderer* renderer;
@@ -9,6 +9,5 @@ protected:
 
 public:
 	Entity(Renderer* renderer);
-	Entity();
 	~Entity();
 };

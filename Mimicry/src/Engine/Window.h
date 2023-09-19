@@ -1,8 +1,9 @@
 #pragma once
 #include <string>;
 #include "glfw3.h"
+#include "Exports.h"
 
-class __declspec(dllexport) Window
+class MimicryEngine_API Window
 {
 private:
 	GLFWwindow* windowPtr;
