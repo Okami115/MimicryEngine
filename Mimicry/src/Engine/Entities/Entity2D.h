@@ -1,9 +1,15 @@
 #pragma once
 #include "Entity.h"
+#include "glm/glm.hpp"
 
 class MimicryEngine_API Entity2D : public Entity
 {
 protected:
+	glm::mat4x4 model;
+	glm::mat4 translation;
+	glm::mat4 rotation;
+	glm::mat4 scale;
+
 #pragma region FRAGMENT SHADER
 	const char* fragmentShaderSource = "#version 330 core\n"
 		"out vec4 FragColor;\n"
@@ -53,6 +59,11 @@ public:
 	void SetVertices(float vertices[]);
 	void SetIndices(unsigned int indices[]);
 
+	void Translate(glm::vec3 newPos);
+	void Rotate(float angleInDegrees, glm::vec3 axis);
+	void Scale(glm::vec3 newScale);
+
+	void UpdateModel();
 	virtual void Draw2D();
 
 };

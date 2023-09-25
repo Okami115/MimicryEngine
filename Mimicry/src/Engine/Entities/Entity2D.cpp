@@ -2,7 +2,10 @@
 
 Entity2D::Entity2D(Renderer* renderer) : Entity(renderer)
 {
-
+	model = glm::mat4(1.0f);
+	translation = glm::mat4(1.0f);
+	scale = glm::mat4(1.0f);
+	rotation = glm::mat4(1.0f);
 }
 
 Entity2D::~Entity2D()
@@ -52,6 +55,29 @@ void Entity2D::SetVertices(float vertices[])
 void Entity2D::SetIndices(unsigned int indices[])
 {
 	this->indices = indices;
+}
+
+void Entity2D::Translate(glm::vec3 newPos)
+{
+	renderer->TranslatePosition(translation, newPos);
+	UpdateModel();
+}
+
+void Entity2D::Rotate(float angleInDegrees, glm::vec3 axis)
+{
+	renderer->Rotate(rotation,angleInDegrees, axis);
+	UpdateModel();
+}
+
+void Entity2D::Scale(glm::vec3 newScale)
+{
+	renderer->Scale(scale, newScale);
+	UpdateModel();
+}
+
+void Entity2D::UpdateModel()
+{
+	model = translation * rotation * scale;
 }
 
 void Entity2D::Draw2D()

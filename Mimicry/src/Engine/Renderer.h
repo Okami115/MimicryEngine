@@ -1,8 +1,14 @@
 #pragma once
 #include "Exports.h"
+#include <glm/gtc/matrix_transform.hpp>
+
 
 class MimicryEngine_API Renderer
 {
+private:
+	glm::mat4x4 model;
+	glm::mat4x4 view;
+	glm::mat4x4 projection;
 public:
 	Renderer();
 	~Renderer();
@@ -17,6 +23,10 @@ public:
 
 	void GenBufferObjects(unsigned int& buffer, int bufferID);
 	void GenVAO(unsigned int& buffer, int bufferID);
+
+	void TranslatePosition(glm::mat4& translation, glm::vec3 newPos);
+	void Rotate(glm::mat4& rotation, float angleInDegrees, glm::vec3 axis);
+	void Scale(glm::mat4& scale, glm::vec3 scaler);
 
     void ClearFrame();
 

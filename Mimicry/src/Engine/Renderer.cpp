@@ -3,10 +3,9 @@
 #include "../include/glfw3.h"
 #include <iostream>
 
-
 Renderer::Renderer()
 {
-	
+
 }
 
 Renderer::~Renderer()
@@ -77,6 +76,27 @@ void Renderer::InitFragmentShader(const char* shaderSource, unsigned int& fragme
 
 	glDeleteShader(shaderProgram);
 
+}
+
+void Renderer::TranslatePosition(glm::mat4& translation, glm::vec3 newPos)
+{
+	glm::mat4 trans = glm::mat4(1.0f);
+	trans = glm::translate(trans, newPos);
+	translation = trans * translation;
+}
+
+void Renderer::Rotate(glm::mat4& rotation, float angleInDegrees, glm::vec3 axis)
+{
+	glm::mat4 trans = glm::mat4(1.0f);
+	trans = glm::rotate(trans, glm::radians(angleInDegrees), axis);
+	rotation = trans * rotation;
+}
+
+void Renderer::Scale(glm::mat4& scale, glm::vec3 scaler)
+{
+	glm::mat4 trans = glm::mat4(1.0f);
+	trans = glm::scale(trans, scaler);
+	scale = trans * scale;
 }
 
 void Renderer::ClearFrame()

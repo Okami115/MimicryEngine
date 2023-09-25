@@ -1,9 +1,12 @@
 #include "BaseGame/BaseGame.h"
 #include "Engine/Shapes/Triangle.h"
+#include "Engine/Shapes/Rectangle.h"
 
 class MyGame : public BaseGame
 {
 	Triangle triangle = NULL;
+	Rectangle rectangle = NULL;
+
 public:
 	MyGame();
 	~MyGame();
