@@ -1,11 +1,9 @@
 #include "Entity2D.h"
+#include <iostream>
 
 Entity2D::Entity2D(Renderer* renderer) : Entity(renderer)
 {
-	model = glm::mat4(1.0f);
-	translation = glm::mat4(1.0f);
-	scale = glm::mat4(1.0f);
-	rotation = glm::mat4(1.0f);
+
 }
 
 Entity2D::~Entity2D()
@@ -25,6 +23,11 @@ void Entity2D::Init()
 	renderer->LoadVertexData(VAO, VBO, vertices, verticesSize);
 	renderer->LoadIndexData(EBO, indices, indicesSize);
 	renderer->LoadVertexAttributes(VAO, VBO, vertices);
+
+	model = glm::mat4(1.0f);
+	translation = glm::mat4(1.0f);
+	scale = glm::mat4(1.0f);
+	rotation = glm::mat4(1.0f);
 }
 
 const char* Entity2D::GetVertexShaderSrc()
@@ -77,10 +80,12 @@ void Entity2D::Scale(glm::vec3 newScale)
 
 void Entity2D::UpdateModel()
 {
+	std::cout << model[0][0];
 	model = translation * rotation * scale;
+	std::cout << model[0][0];
 }
 
 void Entity2D::Draw2D()
 {
-	renderer->DrawEntity2D(shaderProgram, VAO);
+	renderer->DrawEntity2D(shaderProgram, VAO, model);
 }

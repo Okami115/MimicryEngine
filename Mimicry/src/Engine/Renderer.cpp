@@ -2,14 +2,26 @@
 #include "GLEW/glew.h"
 #include "../include/glfw3.h"
 #include <iostream>
+#include <glm/gtc/type_ptr.hpp>
 
 Renderer::Renderer()
 {
-
+	
 }
 
 Renderer::~Renderer()
 {
+}
+
+void Renderer::Init()
+{
+	//projection = glm::ortho(-10.0f, 800.0f, 0.0f, 600.0f, 0.0f, 100.0f);
+	//view = glm::lookAt(
+	//	glm::vec3(0, 0, 1),
+	//	glm::vec3(0, 0, 0),
+	//	glm::vec3(0, 1, 0)
+	//);
+	//model = glm::mat4(1.0f);
 }
 
 void Renderer::GenBufferObjects(unsigned int& buffer, int bufferID)
@@ -21,6 +33,7 @@ void Renderer::GenVAO(unsigned int& buffer, int bufferID)
 {
 	glGenVertexArrays(buffer, &buffer);
 }
+
 
 void Renderer::LoadVertexData(unsigned int& VAO,unsigned int& VBO, float* vertices, int verticesSize)
 {
@@ -52,7 +65,6 @@ void Renderer::InitVertexShader(const char* shaderSource,unsigned int& vertexSha
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShader, 1, &shaderSource, NULL);
 	glCompileShader(vertexShader);
-
 	CompileErrorCheck(vertexShader);
 
 	glAttachShader(shaderProgram, vertexShader);
@@ -104,9 +116,19 @@ void Renderer::ClearFrame()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO)
+void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO, glm::mat4x4& entityModel) 
 {
+	glm::mat4x4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
+	glm::mat4x4 view = glm::lookAt(
+		glm::vec3(0, 0, 1),
+		glm::vec3(0, 0, 0),
+		glm::vec3(0, 1, 0)
+	);
 	glUseProgram(shaderProgram);
+	unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+	//glm::mat4 newMVP = projection * view * entityModel;
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(entityModel));
+	//GLuint MatrixID = glGetUniformLocation(shaderProgram, "MVP");
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

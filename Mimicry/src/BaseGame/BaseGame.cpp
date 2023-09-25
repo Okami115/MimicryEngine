@@ -20,6 +20,7 @@ void BaseGame::Run()
 	if (createdWindow)
 	{
 		Init();
+		renderer.Init();
 
 		while (!window.WindowShouldClose())
 		{

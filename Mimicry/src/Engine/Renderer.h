@@ -6,13 +6,14 @@
 class MimicryEngine_API Renderer
 {
 private:
-	glm::mat4x4 model;
-	glm::mat4x4 view;
-	glm::mat4x4 projection;
+	//glm::mat4x4 model;
+	//glm::mat4x4 view;
+	//glm::mat4x4 projection;
 public:
 	Renderer();
 	~Renderer();
 
+	void Init();
 	void LoadVertexData(unsigned int& VAO, unsigned int& VBO, float* vertices, int verticesSize);
 	void LoadIndexData(unsigned int& EBO, unsigned int* indices, int indicesSize);
 	void LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices);
@@ -30,7 +31,7 @@ public:
 
     void ClearFrame();
 
-	void DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO);
+	void DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO, glm::mat4x4& entityModel);
 
     void CompileErrorCheck(unsigned int& shader);
 };

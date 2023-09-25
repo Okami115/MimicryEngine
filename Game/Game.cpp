@@ -1,11 +1,9 @@
 #include "BaseGame/BaseGame.h"
 #include "Engine/Shapes/Triangle.h"
-#include "Engine/Shapes/Rectangle.h"
 
 class MyGame : public BaseGame
 {
 	Triangle triangle = NULL;
-	Rectangle rectangle = NULL;
 
 public:
 	MyGame();
@@ -44,12 +42,11 @@ void MyGame::Init()
 	triangle.SetVertices(shapeVertices);
 	triangle.SetIndices(shapeIndices);
 	triangle.Init();
-
+	triangle.Translate(glm::vec3(0.5f, 0.2f, 0.0f));
 }
 
 void MyGame::Update()
 {
-
 	triangle.Draw2D();
 }
 
