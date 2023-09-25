@@ -5,10 +5,6 @@
 
 class MimicryEngine_API Renderer
 {
-private:
-	//glm::mat4x4 model;
-	//glm::mat4x4 view;
-	//glm::mat4x4 projection;
 public:
 	Renderer();
 	~Renderer();

@@ -15,13 +15,7 @@ Renderer::~Renderer()
 
 void Renderer::Init()
 {
-	//projection = glm::ortho(-10.0f, 800.0f, 0.0f, 600.0f, 0.0f, 100.0f);
-	//view = glm::lookAt(
-	//	glm::vec3(0, 0, 1),
-	//	glm::vec3(0, 0, 0),
-	//	glm::vec3(0, 1, 0)
-	//);
-	//model = glm::mat4(1.0f);
+
 }
 
 void Renderer::GenBufferObjects(unsigned int& buffer, int bufferID)

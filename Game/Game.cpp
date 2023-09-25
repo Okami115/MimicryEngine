@@ -42,9 +42,9 @@ void MyGame::Init()
 	triangle.SetVertices(shapeVertices);
 	triangle.SetIndices(shapeIndices);
 	triangle.Init();
-	triangle.Translate(glm::vec3(-0.4f, -0.5f, 0.0f));
-	triangle.Scale(glm::vec3(0.8f, 0.7f, 1.0f));
-	triangle.Rotate(70.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+	triangle.Translate(glm::vec3(0.4f, 0.5f, 0.0f));
+	triangle.Scale(glm::vec3(0.8f, -0.7f, 1.0f));
+	triangle.Rotate(170.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 }
 
 void MyGame::Update()
