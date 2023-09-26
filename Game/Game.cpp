@@ -4,6 +4,9 @@
 class MyGame : public BaseGame
 {
 	Triangle triangle = NULL;
+	float trianglePosX = 0.005; 
+	float triangleRotarion = 1.0f;
+	float triangleScale = 0.01f;
 
 public:
 	MyGame();
@@ -26,29 +29,31 @@ MyGame::~MyGame()
 
 void MyGame::Init()
 {
-	float shapeVertices[12] = {
-0.5f, 0.5f, 0.0f,
-0.5f, -0.5f, 0.0f,
--0.5f,  -0.5f, 0.0f,
--0.5f, 0.5f, 0.0f
+	float vertex[]
+	{
+		-1.2f, 0.5f, 0.0f,
+		-0.2f, 0.5f, 0.0f,
+		-0.2f, -0.5f, 0.0f
+	};
+
+	unsigned int index[]
+	{
+		0,1,2
 	};
 
 
-	unsigned int shapeIndices[6]{
-		0, 1, 3,
-		1,2,3
-	};
-
-	triangle.SetVertices(shapeVertices);
-	triangle.SetIndices(shapeIndices);
+	triangle.SetVertices(vertex);
+	triangle.SetIndices(index);
 	triangle.Init();
-	triangle.Translate(glm::vec3(0.4f, 0.5f, 0.0f));
-	triangle.Scale(glm::vec3(0.8f, -0.7f, 1.0f));
-	triangle.Rotate(170.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 }
 
 void MyGame::Update()
 {
+
+	triangle.Translate(glm::vec3(0.0f + trianglePosX, 0.0f, 0.0f));
+	triangle.Scale(glm::vec3(1.0f- triangleScale, 1.0f - triangleScale, 1.0f));
+	triangle.Rotate(-triangleRotarion, glm::vec3(0.0f, 0.0f, 1.0f));
+
 	triangle.Draw2D();
 }
 
