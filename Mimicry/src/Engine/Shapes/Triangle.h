@@ -1,7 +1,7 @@
 #pragma once
-#include "Engine/Entities/Entity2D.h"
+#include "Engine/Shape.h"
 
-class MimicryEngine_API Triangle : public Entity2D
+class MimicryEngine_API Triangle : public Shape
 {
 private:
 

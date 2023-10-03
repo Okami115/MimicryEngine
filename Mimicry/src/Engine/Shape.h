@@ -9,6 +9,7 @@ private:
 
 public:
 	Shape(Renderer* renderer);
+	Shape();
 	~Shape();
 
 };

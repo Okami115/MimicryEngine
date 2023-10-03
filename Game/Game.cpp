@@ -1,9 +1,9 @@
 #include "BaseGame/BaseGame.h"
-#include "Engine/Shapes/Triangle.h"
+#include "Engine/Shapes/Rectangle.h"
 
 class MyGame : public BaseGame
 {
-	Triangle triangle = NULL;
+	Rectangle triangle = NULL;
 
 public:
 	MyGame();
@@ -38,6 +38,8 @@ void MyGame::Init()
 		0, 1, 3,
 		1,2,3
 	};
+
+	triangle = Rectangle(&renderer);
 
 	triangle.SetVertices(shapeVertices);
 	triangle.SetIndices(shapeIndices);

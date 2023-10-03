@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Renderer* renderer) : Entity2D(renderer)
+Triangle::Triangle(Renderer* renderer) : Shape(renderer)
 {
 	verticesSize = 9;
 	indicesSize = 3;

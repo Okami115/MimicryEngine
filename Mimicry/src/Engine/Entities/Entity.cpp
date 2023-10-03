@@ -5,6 +5,11 @@ Entity::Entity(Renderer* renderer)
 	this->renderer = renderer;
 }
 
+Entity::Entity()
+{
+
+}
+
 Entity::~Entity()
 {
 
