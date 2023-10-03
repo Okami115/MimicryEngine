@@ -10,17 +10,17 @@ InputManager::~InputManager()
 
 }
 
-void InputManager::GetKeyDown()
+bool InputManager::GetKeyDown(GLFWkeyfun key)
 {
-
+	return glfwSetKeyCallback(window, key) == GLFW_RELEASE;
 }
 
-void InputManager::GetKey()
+bool InputManager::GetKey(GLFWkeyfun key)
 {
-
+	glfwSetKeyCallback(window, key) == GLFW_RELEASE;
 }
 
-void InputManager::GetKeyUp()
+bool InputManager::GetKeyUp(GLFWkeyfun key)
 {
-
+	glfwSetKeyCallback(window, key) == GLFW_RELEASE;
 }
