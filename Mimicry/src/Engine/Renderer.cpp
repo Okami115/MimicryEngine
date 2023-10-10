@@ -112,6 +112,8 @@ void Renderer::ClearFrame()
 
 void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO, glm::mat4x4& entityModel) 
 {
+
+	// el MVP se define al inico, pero la matriz Modelo se redefine cada vez que modificamos la transformacion.
 	glm::mat4x4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 	glm::mat4x4 view = glm::lookAt(
 		glm::vec3(0, 0, 1),

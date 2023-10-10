@@ -10,6 +10,8 @@ public:
 	glm::mat4 rotation;
 	glm::mat4 scale;
 
+
+	// mover a renderer
 #pragma region FRAGMENT SHADER
 	const char* fragmentShaderSource = "#version 330 core\n"
 		"out vec4 FragColor;\n"
