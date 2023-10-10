@@ -4,7 +4,7 @@
 
 class MimicryEngine_API Entity2D : public Entity
 {
-protected:
+public:
 	glm::mat4x4 model;
 	glm::mat4 translation;
 	glm::mat4 rotation;
@@ -48,6 +48,7 @@ protected:
 
 public:
 	Entity2D(Renderer* renderer);
+	Entity2D();
 	~Entity2D();
 
 	void Init();

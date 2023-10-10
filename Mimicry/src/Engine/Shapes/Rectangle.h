@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/Shape.h"
 
-class MimicryEngine_API Rectangle : public Entity2D
+class MimicryEngine_API Rectangle : public Shape
 {
 public:
 	Rectangle(Renderer* renderer);

@@ -9,5 +9,6 @@ protected:
 
 public:
 	Entity(Renderer* renderer);
+	Entity();
 	~Entity();
 };

@@ -57,6 +57,9 @@
     <ClCompile Include="..\src\Engine\Shapes\Triangle.cpp">
       <Filter>Engine\Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BaseGame\InputManager.cpp">
+      <Filter>BaseGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine\Renderer.h">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Engine\Exports.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BaseGame\InputManager.h">
+      <Filter>BaseGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

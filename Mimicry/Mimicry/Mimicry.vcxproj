@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\BaseGame\BaseGame.cpp" />
+    <ClCompile Include="..\src\BaseGame\InputManager.cpp" />
     <ClCompile Include="..\src\Engine\Entities\Entity.cpp" />
     <ClCompile Include="..\src\Engine\Entities\Entity2D.cpp" />
     <ClCompile Include="..\src\Engine\Renderer.cpp" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame\BaseGame.h" />
+    <ClInclude Include="..\src\BaseGame\InputManager.h" />
     <ClInclude Include="..\src\Engine\Entities\Entity.h" />
     <ClInclude Include="..\src\Engine\Entities\Entity2D.h" />
     <ClInclude Include="..\src\Engine\Exports.h" />

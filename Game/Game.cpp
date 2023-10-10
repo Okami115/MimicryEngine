@@ -1,12 +1,16 @@
 #include "BaseGame/BaseGame.h"
-#include "Engine/Shapes/Triangle.h"
+#include "Engine/Shapes/Rectangle.h"
 
 class MyGame : public BaseGame
 {
+<<<<<<< HEAD
 	Triangle triangle = NULL;
 	float trianglePosX = 0.005; 
 	float triangleRotarion = 1.0f;
 	float triangleScale = 0.01f;
+=======
+	Rectangle triangle = NULL;
+>>>>>>> Input-Manager
 
 public:
 	MyGame();
@@ -41,9 +45,16 @@ void MyGame::Init()
 		0,1,2
 	};
 
+<<<<<<< HEAD
 
 	triangle.SetVertices(vertex);
 	triangle.SetIndices(index);
+=======
+	triangle = Rectangle(&renderer);
+
+	triangle.SetVertices(shapeVertices);
+	triangle.SetIndices(shapeIndices);
+>>>>>>> Input-Manager
 	triangle.Init();
 }
 
