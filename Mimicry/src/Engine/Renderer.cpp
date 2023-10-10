@@ -45,6 +45,7 @@ void Renderer::LoadIndexData(unsigned int& EBO, unsigned int* indices, int indic
 
 void Renderer::LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices)
 {
+	//bindear los buffer para asignar los atributos del vertice
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 }

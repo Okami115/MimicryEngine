@@ -5,6 +5,7 @@
 class MimicryEngine_API Entity2D : public Entity
 {
 public:
+	// mover a Entity.cpp
 	glm::mat4x4 model;
 	glm::mat4 translation;
 	glm::mat4 rotation;
