@@ -19,9 +19,6 @@
     <Filter Include="BaseGame">
       <UniqueIdentifier>{d07fe306-e084-45dc-981b-02a5076f1883}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{56803674-92db-441a-95ac-9808eb09fca9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Shapes">
       <UniqueIdentifier>{6f39ae70-862d-4fae-b8c1-ccfd4962077b}</UniqueIdentifier>
     </Filter>
@@ -35,9 +32,6 @@
     </ClCompile>
     <ClCompile Include="..\src\BaseGame\BaseGame.cpp">
       <Filter>BaseGame</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Game\Mimicry.cpp">
-      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Engine\Renderer.cpp">
       <Filter>Engine</Filter>
@@ -57,8 +51,13 @@
     <ClCompile Include="..\src\Engine\Shapes\Triangle.cpp">
       <Filter>Engine\Shapes</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\src\BaseGame\InputManager.cpp">
       <Filter>BaseGame</Filter>
+=======
+    <ClCompile Include="Utility.cpp">
+      <Filter>Engine</Filter>
+>>>>>>> Tomas
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,8 +88,13 @@
     <ClInclude Include="..\src\Engine\Exports.h">
       <Filter>Engine</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\src\BaseGame\InputManager.h">
       <Filter>BaseGame</Filter>
+=======
+    <ClInclude Include="Utility.h">
+      <Filter>Engine</Filter>
+>>>>>>> Tomas
     </ClInclude>
   </ItemGroup>
 </Project>

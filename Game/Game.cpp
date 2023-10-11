@@ -1,6 +1,8 @@
+#include "Game.h"
 #include "BaseGame/BaseGame.h"
 #include "Engine/Shapes/Rectangle.h"
 
+<<<<<<< HEAD
 class MyGame : public BaseGame
 {
 <<<<<<< HEAD
@@ -21,6 +23,8 @@ public:
 	void Deinit() override;
 };
 
+=======
+>>>>>>> Tomas
 MyGame::MyGame() : BaseGame()
 {
 
@@ -33,11 +37,21 @@ MyGame::~MyGame()
 
 void MyGame::Init()
 {
+<<<<<<< HEAD
 	float vertex[]
 	{
 		-1.2f, 0.5f, 0.0f,
 		-0.2f, 0.5f, 0.0f,
 		-0.2f, -0.5f, 0.0f
+=======
+
+	// Definirlo en la entity 2D
+	float shapeVertices[12] = {
+0.5f, 0.5f, 0.0f,
+0.5f, -0.5f, 0.0f,
+-0.5f,  -0.5f, 0.0f,
+-0.5f, 0.5f, 0.0f
+>>>>>>> Tomas
 	};
 
 	unsigned int index[]
@@ -52,6 +66,8 @@ void MyGame::Init()
 =======
 	triangle = Rectangle(&renderer);
 
+
+	// hacer uso de los getters y setters
 	triangle.SetVertices(shapeVertices);
 	triangle.SetIndices(shapeIndices);
 >>>>>>> Input-Manager
@@ -73,9 +89,3 @@ void MyGame::Deinit()
 
 }
 
-int main(void)
-{
-	MyGame myGame = MyGame();
-
-	myGame.Run();
-}

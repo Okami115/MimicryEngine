@@ -45,6 +45,7 @@ void Renderer::LoadIndexData(unsigned int& EBO, unsigned int* indices, int indic
 
 void Renderer::LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices)
 {
+	//bindear los buffer para asignar los atributos del vertice
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 }
@@ -112,6 +113,8 @@ void Renderer::ClearFrame()
 
 void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO, glm::mat4x4& entityModel) 
 {
+
+	// el MVP se define al inico, pero la matriz Modelo se redefine cada vez que modificamos la transformacion.
 	glm::mat4x4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 	glm::mat4x4 view = glm::lookAt(
 		glm::vec3(0, 0, 1),

@@ -18,10 +18,12 @@ Entity2D::~Entity2D()
 
 void Entity2D::Init()
 {
+	//mover a Entity.cpp
 	renderer->CreateShaderProgram(shaderProgram);
 	renderer->InitVertexShader(vertexShaderSource, vertexShader, vertexAttributeSize, shaderProgram);
 	renderer->InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
 
+	//mover a Entity.cpp
 	renderer->GenVAO(VAO, 1);
 	renderer->GenBufferObjects(VBO, 1);
 	renderer->GenBufferObjects(EBO, 1);
@@ -29,6 +31,7 @@ void Entity2D::Init()
 	renderer->LoadIndexData(EBO, indices, indicesSize);
 	renderer->LoadVertexAttributes(VAO, VBO, vertices);
 
+	//mover a Entity.cpp
 	model = glm::mat4(1.0f);
 	translation = glm::mat4(1.0f);
 	scale = glm::mat4(1.0f);

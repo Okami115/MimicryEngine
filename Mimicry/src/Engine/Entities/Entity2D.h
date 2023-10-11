@@ -5,11 +5,14 @@
 class MimicryEngine_API Entity2D : public Entity
 {
 public:
+	// mover a Entity.cpp
 	glm::mat4x4 model;
 	glm::mat4 translation;
 	glm::mat4 rotation;
 	glm::mat4 scale;
 
+
+	// mover a renderer
 #pragma region FRAGMENT SHADER
 	const char* fragmentShaderSource = "#version 330 core\n"
 		"out vec4 FragColor;\n"
