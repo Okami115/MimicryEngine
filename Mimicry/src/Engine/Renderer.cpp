@@ -15,7 +15,18 @@ Renderer::~Renderer()
 
 void Renderer::Init()
 {
+	//mover a Entity.cpp
+	CreateShaderProgram(shaderProgram);
+	InitVertexShader(vertexShaderSource, vertexShader, vertexAttributeSize, shaderProgram);
+	InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
 
+	//mover a Entity.cpp
+	GenVAO(VAO, 1);
+	GenBufferObjects(VBO, 1);
+	GenBufferObjects(EBO, 1);
+	LoadVertexData(VAO, VBO, vertices, verticesSize);
+	LoadIndexData(EBO, indices, indicesSize);
+	LoadVertexAttributes(VAO, VBO, vertices);
 }
 
 void Renderer::GenBufferObjects(unsigned int& buffer, int bufferID)
