@@ -12,9 +12,6 @@ public:
 	glm::mat4 scale;
 
 
-	// mover a renderer
-
-
 	float* vertices;
 	int verticesSize;
 
@@ -29,11 +26,6 @@ public:
 	~Entity2D();
 
 	void Init();
-
-	const char* GetVertexShaderSrc();
-	const char* GetFragmentShaderSrc();
-	void SetVertexShaderSrc(char* source);
-	void SetFragmentShaderSrc(char* source);
 
 	void SetVertices(float vertices[]);
 	void SetIndices(unsigned int indices[]);

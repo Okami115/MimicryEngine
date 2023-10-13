@@ -7,7 +7,7 @@ class MimicryEngine_API BaseGame
 {
 protected:
 	Window window;
-	Renderer renderer;
+	Renderer* renderer;
 	const char* title = "Mimicry Engine";
 
 	virtual void Init();

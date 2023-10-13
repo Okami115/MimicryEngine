@@ -15,16 +15,18 @@ void BaseGame::Run()
 {
 	const char* title = "Mimicry Engine";
 
+	renderer = new Renderer();
+
 	bool createdWindow = window.CreateWindow(800, 600, title);
 
 	if (createdWindow)
 	{
+		renderer->Init();
 		Init();
-		renderer.Init();
 
 		while (!window.WindowShouldClose())
 		{
-			renderer.ClearFrame();
+			renderer->ClearFrame();
 			Update();
 			window.SwapBuffers();
 			window.PollEvents();
@@ -33,7 +35,7 @@ void BaseGame::Run()
 
 	Deinit();
 	glfwTerminate();
-
+	delete(renderer);
 }
 
 void BaseGame::Init()

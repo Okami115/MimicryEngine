@@ -6,7 +6,7 @@
 
 Renderer::Renderer()
 {
-	
+
 }
 
 Renderer::~Renderer()
@@ -15,32 +15,27 @@ Renderer::~Renderer()
 
 void Renderer::Init()
 {
-	//mover a Entity.cpp
-	CreateShaderProgram(shaderProgram);
-	InitVertexShader(vertexShaderSource, vertexShader, vertexAttributeSize, shaderProgram);
-	InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
+	CreateShaderProgram();
+	InitVertexShader();
+	InitFragmentShader();
 
-	//mover a Entity.cpp
-	GenVAO(VAO, 1);
-	GenBufferObjects(VBO, 1);
-	GenBufferObjects(EBO, 1);
-	LoadVertexData(VAO, VBO, vertices, verticesSize);
-	LoadIndexData(EBO, indices, indicesSize);
-	LoadVertexAttributes(VAO, VBO, vertices);
+	GenVAO();
+	GenBufferObjects();
 }
 
-void Renderer::GenBufferObjects(unsigned int& buffer, int bufferID)
+void Renderer::GenBufferObjects()
 {
-	glGenBuffers(bufferID, &buffer);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
 }
 
-void Renderer::GenVAO(unsigned int& buffer, int bufferID)
+void Renderer::GenVAO()
 {
-	glGenVertexArrays(buffer, &buffer);
+	glGenVertexArrays(1, &VAO);
 }
 
 
-void Renderer::LoadVertexData(unsigned int& VAO,unsigned int& VBO, float* vertices, int verticesSize)
+void Renderer::LoadVertexData(float* vertices, int verticesSize)
 {
 	glBindVertexArray(VAO);
 
@@ -48,29 +43,30 @@ void Renderer::LoadVertexData(unsigned int& VAO,unsigned int& VBO, float* vertic
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * verticesSize, vertices, GL_STATIC_DRAW);
 }
 
-void Renderer::LoadIndexData(unsigned int& EBO, unsigned int* indices, int indicesSize)
+void Renderer::LoadIndexData(unsigned int* indices, int indicesSize)
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * indicesSize, indices, GL_STATIC_DRAW);
 }
 
-void Renderer::LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices)
+void Renderer::LoadVertexAttributes(float* vertices)
 {
 	//bindear los buffer para asignar los atributos del vertice
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 }
 
-void Renderer::CreateShaderProgram(unsigned int& shaderProgram)
+void Renderer::CreateShaderProgram()
 {
 	shaderProgram = glCreateProgram();
 }
 
-void Renderer::InitVertexShader(const char* shaderSource,unsigned int& vertexShader, int vertexAttributeSize, unsigned int& shaderProgram)
+void Renderer::InitVertexShader()
 {
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &shaderSource, NULL);
+	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 	glCompileShader(vertexShader);
+
 	CompileErrorCheck(vertexShader);
 
 	glAttachShader(shaderProgram, vertexShader);
@@ -80,10 +76,10 @@ void Renderer::InitVertexShader(const char* shaderSource,unsigned int& vertexSha
 	glDeleteShader(vertexShader);
 }
 
-void Renderer::InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, unsigned int& shaderProgram)
+void Renderer::InitFragmentShader()
 {
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &shaderSource, NULL);
+	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
 	glCompileShader(fragmentShader);
 
 	CompileErrorCheck(fragmentShader);
@@ -122,7 +118,7 @@ void Renderer::ClearFrame()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO, glm::mat4x4& entityModel) 
+void Renderer::DrawEntity2D(glm::mat4x4& entityModel) 
 {
 
 	// el MVP se define al inico, pero la matriz Modelo se redefine cada vez que modificamos la transformacion.

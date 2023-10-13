@@ -25,8 +25,8 @@ private:
 		"}\0";
 #pragma endregion
 
-	unsigned int VBO;	//Vertex buffer object, stores vertices data
 	unsigned int VAO;	//Vertex Array object, stores vertex attributes
+	unsigned int VBO;	//Vertex buffer object, stores vertices data
 	unsigned int EBO;	//Element Buffer Objects, stores indices to specify to OpenGL what vertices t draw
 
 	unsigned int vertexShader;
@@ -39,16 +39,16 @@ public:
 	~Renderer();
 
 	void Init();
-	void LoadVertexData(unsigned int& VAO, unsigned int& VBO, float* vertices, int verticesSize);
-	void LoadIndexData(unsigned int& EBO, unsigned int* indices, int indicesSize);
-	void LoadVertexAttributes(unsigned int& VAO, unsigned int& VBO, float* vertices);
+	void LoadVertexData(float* vertices, int verticesSize);
+	void LoadIndexData(unsigned int* indices, int indicesSize);
+	void LoadVertexAttributes(float* vertices);
 
-	void CreateShaderProgram(unsigned int& shaderProgram);
-	void InitVertexShader(const char* shaderSource, unsigned int& vertexShader, int vertexAttributeSize, unsigned int& shaderProgram);
-    void InitFragmentShader(const char* shaderSource, unsigned int& fragmentShader, unsigned int& shaderProgram);
+	void CreateShaderProgram();
+	void InitVertexShader();
+    void InitFragmentShader();
 
-	void GenBufferObjects(unsigned int& buffer, int bufferID);
-	void GenVAO(unsigned int& buffer, int bufferID);
+	void GenBufferObjects();
+	void GenVAO();
 
 	void TranslatePosition(glm::mat4& translation, glm::vec3 newPos);
 	void Rotate(glm::mat4& rotation, float angleInDegrees, glm::vec3 axis);
@@ -56,7 +56,7 @@ public:
 
     void ClearFrame();
 
-	void DrawEntity2D(unsigned int& shaderProgram, unsigned int& VAO, glm::mat4x4& entityModel);
+	void DrawEntity2D(glm::mat4x4& entityModel);
 
     void CompileErrorCheck(unsigned int& shader);
 };

@@ -18,44 +18,15 @@ Entity2D::~Entity2D()
 
 void Entity2D::Init()
 {
-	//mover a Entity.cpp
-	renderer->CreateShaderProgram(shaderProgram);
-	renderer->InitVertexShader(vertexShaderSource, vertexShader, vertexAttributeSize, shaderProgram);
-	renderer->InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
+	//mover a Entity.cpp 
+	renderer->LoadVertexData(vertices, verticesSize);
+	renderer->LoadIndexData(indices, indicesSize);
+	renderer->LoadVertexAttributes(vertices);
 
-	//mover a Entity.cpp
-	renderer->GenVAO(VAO, 1);
-	renderer->GenBufferObjects(VBO, 1);
-	renderer->GenBufferObjects(EBO, 1);
-	renderer->LoadVertexData(VAO, VBO, vertices, verticesSize);
-	renderer->LoadIndexData(EBO, indices, indicesSize);
-	renderer->LoadVertexAttributes(VAO, VBO, vertices);
-
-	//mover a Entity.cpp
 	model = glm::mat4(1.0f);
 	translation = glm::mat4(1.0f);
 	scale = glm::mat4(1.0f);
 	rotation = glm::mat4(1.0f);
-}
-
-const char* Entity2D::GetVertexShaderSrc()
-{
-	return vertexShaderSource;
-}
-
-const char* Entity2D::GetFragmentShaderSrc()
-{
-	return fragmentShaderSource;
-}
-
-void Entity2D::SetVertexShaderSrc(char* source)
-{
-	vertexShaderSource = source;
-}
-
-void Entity2D::SetFragmentShaderSrc(char* source)
-{
-	fragmentShaderSource = source;
 }
 
 void Entity2D::SetVertices(float vertices[])
@@ -95,5 +66,5 @@ void Entity2D::UpdateModel()
 
 void Entity2D::Draw2D()
 {
-	renderer->DrawEntity2D(shaderProgram, VAO, model);
+	renderer->DrawEntity2D(model);
 }
