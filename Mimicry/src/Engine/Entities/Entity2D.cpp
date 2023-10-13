@@ -22,7 +22,7 @@ void Entity2D::Init()
 	renderer->InitVertexShader(vertexShaderSource, vertexShader, vertexAttributeSize, shaderProgram);
 	renderer->InitFragmentShader(fragmentShaderSource, fragmentShader, shaderProgram);
 
-	renderer->GenVAO(VAO, 1);
+	//renderer->GenVAO(VAO, 1);
 	renderer->GenBufferObjects(VBO, 1);
 	renderer->GenBufferObjects(EBO, 1);
 	renderer->LoadVertexData(VAO, VBO, vertices, verticesSize);
