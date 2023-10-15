@@ -16,29 +16,8 @@ void MyGame::Init()
 {
 
 	triangle = new Triangle(renderer);
+	rectangle = new Rectangle(renderer);
 
-	float vertex[]
-	{
-		0.5f, 0.0f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f
-	};
-
-
-	unsigned int index[]
-	{
-		0,1,2
-	};
-
-
-	triangle->SetVertices(vertex);
-	triangle->SetIndices(index);
-
-
-	// hacer uso de los getters y setters
-
-	triangle->Init();
-	
 }
 
 void MyGame::Update()
@@ -49,10 +28,12 @@ void MyGame::Update()
 	//triangle.Rotate(-triangleRotarion, glm::vec3(0.0f, 0.0f, 1.0f));
 
 	triangle->Draw2D();
+	//rectangle->Draw2D();
 }
 
 void MyGame::Deinit()
 {
 	delete(triangle);
+	delete(rectangle);
 }
 
