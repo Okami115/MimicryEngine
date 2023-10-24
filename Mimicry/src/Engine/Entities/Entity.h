@@ -31,7 +31,7 @@ public:
 	void GetScale();
 	void SetScale(float x, float y, float z);
 	void GetRotation();
-	void SetRotation(int x, int y, int z);
+	void SetRotation(float angle);
 	void SetColor(float r, float g, float b, float a);
 
 	void Init();

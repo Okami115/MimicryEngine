@@ -15,6 +15,13 @@ Renderer::~Renderer()
 
 void Renderer::Init()
 {
+	projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
+	view = glm::lookAt(
+		glm::vec3(0, 0, 1),
+		glm::vec3(0, 0, 0),
+		glm::vec3(0, 1, 0)
+	);
+
 	CreateShaderProgram();
 	InitVertexShader();
 	InitFragmentShader();
@@ -120,15 +127,11 @@ void Renderer::ClearFrame()
 
 void Renderer::DrawEntity2D(glm::mat4x4& entityModel) 
 {
-
-	// el MVP se define al inico, pero la matriz Modelo se redefine cada vez que modificamos la transformacion.
-	glm::mat4x4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
-	glm::mat4x4 view = glm::lookAt(
-		glm::vec3(0, 0, 1),
-		glm::vec3(0, 0, 0),
-		glm::vec3(0, 1, 0)
-	);
 	glUseProgram(shaderProgram);
+
+	glm::vec4 newColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+	glUniform4f(glGetUniformLocation(shaderProgram, "FragColor"), newColor.x, newColor.y, newColor.z, newColor.w);
+
 	unsigned int MVP = glGetUniformLocation(shaderProgram, "MVP");
 	glm::mat4 newMVP = projection * view * entityModel;
 	glUniformMatrix4fv(MVP, 1, GL_FALSE, glm::value_ptr(newMVP));

@@ -19,6 +19,28 @@ void Entity::SetPos(int x, int y, int z)
 	UpdateModel();
 }
 
+void Entity::SetScale(float x, float y, float z)
+{
+	scale = glm::scale(scale, { x, y, z });
+
+	UpdateModel();
+}
+void Entity::SetRotation(float angle)
+{
+	rotation = glm::rotate(rotation, glm::radians(angle), glm::vec3(0, 0, 1));
+	UpdateModel();
+}
+
+void Entity::SetColor(float r, float g, float b, float a)
+{
+
+	UpdateModel();
+}
+
+void Entity::GetPos(){}
+void Entity::GetScale(){}
+void Entity::GetRotation(){}
+
 Entity::~Entity()
 {
 

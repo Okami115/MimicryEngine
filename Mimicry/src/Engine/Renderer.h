@@ -8,10 +8,11 @@ class MimicryEngine_API Renderer
 private:
 #pragma region FRAGMENT SHADER
 	const char* fragmentShaderSource = "#version 330 core\n"
-		"out vec4 FragColor;\n"
+		"layout (location = 0) out vec4 Color;\n"
+		"uniform vec4 FragColor;\n"
 		"void main()\n"
 		"{\n"
-		"   FragColor = vec4(0.0f, 0.0f, 1.0f, 1.0f);\n"
+		"   Color = vec4(FragColor.x, FragColor.y, FragColor.z, FragColor.w);\n"
 		"}\0";
 #pragma endregion
 
@@ -33,6 +34,9 @@ private:
 	unsigned int fragmentShader;
 
 	unsigned int shaderProgram;
+
+	glm::mat4x4 view;
+	glm::mat4x4 projection;
 
 public:
 	Renderer();

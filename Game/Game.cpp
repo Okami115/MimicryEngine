@@ -18,6 +18,7 @@ void MyGame::Init()
 	//triangle = new Triangle(renderer);
 	rectangle = new Rectangle(renderer);
 	rectangle->SetPos(100,100,0);
+	rectangle->SetScale(100, 100, 0);
 }
 
 void MyGame::Update()
