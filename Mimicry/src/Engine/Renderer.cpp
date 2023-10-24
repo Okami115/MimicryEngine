@@ -129,10 +129,9 @@ void Renderer::DrawEntity2D(glm::mat4x4& entityModel)
 		glm::vec3(0, 1, 0)
 	);
 	glUseProgram(shaderProgram);
-	unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+	unsigned int MVP = glGetUniformLocation(shaderProgram, "MVP");
 	glm::mat4 newMVP = projection * view * entityModel;
-	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(entityModel));
-	GLuint MatrixID = glGetUniformLocation(shaderProgram, "MVP");
+	glUniformMatrix4fv(MVP, 1, GL_FALSE, glm::value_ptr(newMVP));
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

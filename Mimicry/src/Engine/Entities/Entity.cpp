@@ -1,4 +1,6 @@
 #include "Entity.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 Entity::Entity(Renderer* renderer)
 {
@@ -8,6 +10,13 @@ Entity::Entity(Renderer* renderer)
 Entity::Entity()
 {
 
+}
+
+void Entity::SetPos(int x, int y, int z)
+{
+	translation = glm::translate(translation, { x, y, z });
+
+	UpdateModel();
 }
 
 Entity::~Entity()

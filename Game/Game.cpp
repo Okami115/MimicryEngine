@@ -15,9 +15,9 @@ MyGame::~MyGame()
 void MyGame::Init()
 {
 
-	triangle = new Triangle(renderer);
+	//triangle = new Triangle(renderer);
 	rectangle = new Rectangle(renderer);
-
+	rectangle->SetPos(100,100,0);
 }
 
 void MyGame::Update()
@@ -27,8 +27,8 @@ void MyGame::Update()
 	//triangle.Scale(glm::vec3(1.0f- triangleScale, 1.0f - triangleScale, 1.0f));
 	//triangle.Rotate(-triangleRotarion, glm::vec3(0.0f, 0.0f, 1.0f));
 
-	triangle->Draw2D();
-	//rectangle->Draw2D();
+	//triangle->Draw2D();
+	rectangle->Draw2D();
 }
 
 void MyGame::Deinit()
