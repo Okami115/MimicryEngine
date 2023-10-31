@@ -156,6 +156,10 @@
     <ClCompile Include="..\src\Engine\Shapes\Rectangle.cpp" />
     <ClCompile Include="..\src\Engine\Shapes\Triangle.cpp" />
     <ClCompile Include="..\src\Engine\Window.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +173,15 @@
     <ClInclude Include="..\src\Engine\Shapes\Rectangle.h" />
     <ClInclude Include="..\src\Engine\Shapes\Triangle.h" />
     <ClInclude Include="..\src\Engine\Window.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="Utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Source\Shader\TextureFragmentShader.shader" />
+    <None Include="..\src\Source\Shader\TextureVertexShader.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

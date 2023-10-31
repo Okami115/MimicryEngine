@@ -43,6 +43,7 @@ public:
 	~Renderer();
 
 	void Init();
+	void ShaderStart();
 	void LoadVertexData(float* vertices, int verticesSize);
 	void LoadIndexData(unsigned int* indices, int indicesSize);
 	void LoadVertexAttributes(float* vertices);

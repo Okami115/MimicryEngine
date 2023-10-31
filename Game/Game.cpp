@@ -16,9 +16,11 @@ void MyGame::Init()
 {
 
 	//triangle = new Triangle(renderer);
-	rectangle = new Rectangle(renderer);
-	rectangle->SetPos(100,100,0);
-	rectangle->SetScale(100, 100, 0);
+	//rectangle = new Rectangle(renderer);
+	//rectangle->SetPos(100,100,0);
+	//rectangle->SetScale(100, 100, 0);
+	sprite = new Sprite(renderer);
+	//sprite->SetSprite("../../Assets/Texture.jpg");
 }
 
 void MyGame::Update()
@@ -29,7 +31,8 @@ void MyGame::Update()
 	//triangle.Rotate(-triangleRotarion, glm::vec3(0.0f, 0.0f, 1.0f));
 
 	//triangle->Draw2D();
-	rectangle->Draw2D();
+	//rectangle->Draw2D();
+	sprite->Draw2D();
 }
 
 void MyGame::Deinit()

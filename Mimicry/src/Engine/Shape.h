@@ -6,7 +6,6 @@ class MimicryEngine_API Shape : public Entity2D
 {
 private:
 
-
 public:
 	Shape(Renderer* renderer);
 	Shape();

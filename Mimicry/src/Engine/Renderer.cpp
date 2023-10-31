@@ -1,8 +1,11 @@
 #include "Renderer.h"
+#include "../Mimicry/Utility.h"
 #include "GLEW/glew.h"
 #include "../include/glfw3.h"
 #include <iostream>
 #include <glm/gtc/type_ptr.hpp>
+#include <fstream>
+#include <sstream>
 
 Renderer::Renderer()
 {
@@ -13,6 +16,29 @@ Renderer::~Renderer()
 {
 }
 
+std::string ReadShader(std::string Path)
+{
+	std::string src;
+	std::ifstream fShaderFile;
+
+	fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+	try
+	{
+		fShaderFile.open(Path);
+		std::stringstream vShaderStream, fShaderStream;
+		fShaderStream << fShaderFile.rdbuf();
+		fShaderFile.close();
+		src = fShaderStream.str();
+	}
+	catch (std::ifstream::failure& e)
+	{
+		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+	}
+	return src;
+
+}
+
 void Renderer::Init()
 {
 	projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
@@ -21,6 +47,12 @@ void Renderer::Init()
 		glm::vec3(0, 0, 0),
 		glm::vec3(0, 1, 0)
 	);
+	std::string Fs = ReadShader("C:/Users/Aula 2/Desktop/MimicryEngine/Mimicry/src/Source/Shader/TextureFragmentShader.shader");
+	std::string Vs = ReadShader("C:/Users/Aula 2/Desktop/MimicryEngine/Mimicry/src/Source/Shader/TextureVertexShader.shader");
+
+
+	fragmentShaderSource = Fs.c_str();
+	vertexShaderSource = Vs.c_str();
 
 	CreateShaderProgram();
 	InitVertexShader();
@@ -41,13 +73,13 @@ void Renderer::GenVAO()
 	glGenVertexArrays(1, &VAO);
 }
 
-
 void Renderer::LoadVertexData(float* vertices, int verticesSize)
 {
 	glBindVertexArray(VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * verticesSize, vertices, GL_STATIC_DRAW);
+	
 }
 
 void Renderer::LoadIndexData(unsigned int* indices, int indicesSize)
