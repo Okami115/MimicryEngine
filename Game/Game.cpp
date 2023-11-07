@@ -20,7 +20,9 @@ void MyGame::Init()
 	//rectangle->SetPos(100,100,0);
 	//rectangle->SetScale(100, 100, 0);
 	sprite = new Sprite(renderer);
-	//sprite->SetSprite("../../Assets/Texture.jpg");
+	sprite->SetPos(100, 100, 0);
+	sprite->SetScale(100, 100, 0);
+	sprite->SetSprite("../Assets/Texture.jpg");
 }
 
 void MyGame::Update()

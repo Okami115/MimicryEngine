@@ -2,15 +2,16 @@
 
 Rectangle::Rectangle(Renderer* renderer) : Shape(renderer)
 {
-	verticesSize = 12;
+	verticesSize = 36;
 	indicesSize = 6;
 
 	float vertex[]
 	{
-		0.5f, 0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, 0.5f, 0.0f
+		// X,	 Y,	   Z,	 R,    G,	 B,	   A,	 U,    V,
+		0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f
 	};
 
 

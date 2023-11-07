@@ -23,13 +23,18 @@ std::string ReadShader(std::string Path)
 
 	fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
+	fShaderFile.open(Path);
+
 	try
 	{
-		fShaderFile.open(Path);
-		std::stringstream vShaderStream, fShaderStream;
-		fShaderStream << fShaderFile.rdbuf();
-		fShaderFile.close();
-		src = fShaderStream.str();
+		if (fShaderFile.is_open())
+		{
+			std::stringstream fShaderStream;
+			fShaderStream << fShaderFile.rdbuf();
+			src = fShaderStream.str();
+			fShaderFile.close();
+
+		}
 	}
 	catch (std::ifstream::failure& e)
 	{
@@ -47,12 +52,6 @@ void Renderer::Init()
 		glm::vec3(0, 0, 0),
 		glm::vec3(0, 1, 0)
 	);
-	std::string Fs = ReadShader("C:/Users/Aula 2/Desktop/MimicryEngine/Mimicry/src/Source/Shader/TextureFragmentShader.shader");
-	std::string Vs = ReadShader("C:/Users/Aula 2/Desktop/MimicryEngine/Mimicry/src/Source/Shader/TextureVertexShader.shader");
-
-
-	fragmentShaderSource = Fs.c_str();
-	vertexShaderSource = Vs.c_str();
 
 	CreateShaderProgram();
 	InitVertexShader();
@@ -91,8 +90,14 @@ void Renderer::LoadIndexData(unsigned int* indices, int indicesSize)
 void Renderer::LoadVertexAttributes(float* vertices)
 {
 	//bindear los buffer para asignar los atributos del vertice
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(7 * sizeof(float)));
+	glEnableVertexAttribArray(2);
 }
 
 void Renderer::CreateShaderProgram()
@@ -163,11 +168,29 @@ void Renderer::DrawEntity2D(glm::mat4x4& entityModel)
 
 	glm::vec4 newColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
 	glUniform4f(glGetUniformLocation(shaderProgram, "FragColor"), newColor.x, newColor.y, newColor.z, newColor.w);
+	glUniform1i(glGetUniformLocation(shaderProgram, "useTexture"), false);
 
 	unsigned int MVP = glGetUniformLocation(shaderProgram, "MVP");
 	glm::mat4 newMVP = projection * view * entityModel;
 	glUniformMatrix4fv(MVP, 1, GL_FALSE, glm::value_ptr(newMVP));
 	glBindVertexArray(VAO);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+}
+
+void Renderer::DrawSprite(glm::mat4x4& entityModel, unsigned int& texture)
+{
+	unsigned int aux = glGetUniformLocation(shaderProgram, "useTexture");
+
+	glUseProgram(shaderProgram);
+
+	glUniform4f(glGetUniformLocation(shaderProgram, "FragColor"), 1, 1, 1, 1);
+	glUniform1f(aux, 1.0f);
+
+	unsigned int MVP = glGetUniformLocation(shaderProgram, "MVP");
+	glm::mat4 newMVP = projection * view * entityModel;
+	glUniformMatrix4fv(MVP, 1, GL_FALSE, glm::value_ptr(newMVP));
+	glBindVertexArray(VAO);
+	glBindTexture(GL_TEXTURE_2D, texture);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 

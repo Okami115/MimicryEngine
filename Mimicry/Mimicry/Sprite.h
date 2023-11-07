@@ -18,6 +18,7 @@ public:
 	Sprite(Renderer* renderer);
 	Sprite();
 	~Sprite();
+	void Draw2D() override;
 
 	void SetSprite(std::string path);
 

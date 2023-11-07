@@ -35,11 +35,11 @@ void Utility::ShaderStart()
 
 std::string Utility::GetTextureVertexShaderPath()
 {
-	return "Mimicry\src\Source\Shader\TextureVertexShader.shader";
+	return "../src/Source/Shader/TextureVertexShader.shader";
 }
 
 std::string Utility::GetTextureFragmentShaderPath()
 {
 
-	return "Mimicry\src\Source\Shader\TextureFragmentShader.shader";
+	return "../src/Source/Shader/TextureFragmentShader.shader";
 }

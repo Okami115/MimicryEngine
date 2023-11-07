@@ -7,23 +7,45 @@ class MimicryEngine_API Renderer
 {
 private:
 #pragma region FRAGMENT SHADER
-	const char* fragmentShaderSource = "#version 330 core\n"
-		"layout (location = 0) out vec4 Color;\n"
-		"uniform vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"   Color = vec4(FragColor.x, FragColor.y, FragColor.z, FragColor.w);\n"
-		"}\0";
+	const char* fragmentShaderSource = R"(#version 330 core
+in vec4 vertexColor;
+in vec2 TexCoord;
+out vec4 FragColor;
+
+uniform vec3 color = vec3(1.0f, 1.0f, 1.0f);
+uniform float alpha = 1.0f;
+uniform float useTexture = 0.0f;
+uniform sampler2D theTexture;
+
+void main()
+{
+	if (useTexture == 0.0f)
+		FragColor = vec4(vertexColor * vec4(color,alpha));
+	else
+		FragColor = texture(theTexture, TexCoord) * vec4(vertexColor * vec4(color, alpha));
+
+})";
+
 #pragma endregion
 
 #pragma region VERTEX SHADER
-	const char* vertexShaderSource = "#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"uniform mat4 MVP;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}\0";
+	const char* vertexShaderSource = R"(#version 330 core
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in vec4 aColor;
+layout(location = 2) in vec2 tex;
+
+uniform mat4 transform = mat4(1.0f);
+uniform mat4 view = mat4(1.0f);
+uniform mat4 projection = mat4(1.0f);
+
+out vec4 vertexColor;
+out vec2 TexCoord;
+void main()
+{
+    gl_Position = projection * view * transform * vec4(aPos, 1.0);
+    TexCoord = vec2(tex.x, tex.y);
+    vertexColor = vec4(aColor.x, aColor.y, aColor.z, 1.0); // set the output variable to a dark-red color
+})";
 #pragma endregion
 
 	unsigned int VAO;	//Vertex Array object, stores vertex attributes
@@ -63,5 +85,7 @@ public:
 
 	void DrawEntity2D(glm::mat4x4& entityModel);
 
-    void CompileErrorCheck(unsigned int& shader);
+	void DrawSprite(glm::mat4x4& entityModel, unsigned int& texture);
+
+	void CompileErrorCheck(unsigned int& shader);
 };
