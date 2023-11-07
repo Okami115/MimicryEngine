@@ -34,17 +34,15 @@ layout(location = 0) in vec3 aPos;
 layout(location = 1) in vec4 aColor;
 layout(location = 2) in vec2 tex;
 
-uniform mat4 transform = mat4(1.0f);
-uniform mat4 view = mat4(1.0f);
-uniform mat4 projection = mat4(1.0f);
+uniform mat4 MVP;
 
 out vec4 vertexColor;
 out vec2 TexCoord;
 void main()
 {
-    gl_Position = projection * view * transform * vec4(aPos, 1.0);
+	gl_Position = MVP * vec4(aPos.x, aPos.y, aPos.z, 1.0);
     TexCoord = vec2(tex.x, tex.y);
-    vertexColor = vec4(aColor.x, aColor.y, aColor.z, 1.0); // set the output variable to a dark-red color
+    vertexColor = vec4(aColor.x, aColor.y, aColor.z, 1.0);
 })";
 #pragma endregion
 

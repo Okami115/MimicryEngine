@@ -156,6 +156,8 @@
     <ClCompile Include="..\src\Engine\Shapes\Rectangle.cpp" />
     <ClCompile Include="..\src\Engine\Shapes\Triangle.cpp" />
     <ClCompile Include="..\src\Engine\Window.cpp" />
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -173,6 +175,8 @@
     <ClInclude Include="..\src\Engine\Shapes\Rectangle.h" />
     <ClInclude Include="..\src\Engine\Shapes\Triangle.h" />
     <ClInclude Include="..\src\Engine\Window.h" />
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="Frame.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />

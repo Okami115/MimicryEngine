@@ -20,9 +20,9 @@ void MyGame::Init()
 	//rectangle->SetPos(100,100,0);
 	//rectangle->SetScale(100, 100, 0);
 	sprite = new Sprite(renderer);
-	sprite->SetPos(100, 100, 0);
-	sprite->SetScale(100, 100, 0);
-	sprite->SetSprite("../Assets/Texture.jpg");
+	sprite->SetPos(400, 300, 0);
+	sprite->SetScale(500, 500, 0);
+	sprite->SetSprite("../Assets/messi.png");
 }
 
 void MyGame::Update()

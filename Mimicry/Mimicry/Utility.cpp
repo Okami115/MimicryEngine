@@ -43,3 +43,9 @@ std::string Utility::GetTextureFragmentShaderPath()
 
 	return "../src/Source/Shader/TextureFragmentShader.shader";
 }
+
+UV::UV(float U, float V)
+{
+	this->U = U;
+	this->V = V;
+}
