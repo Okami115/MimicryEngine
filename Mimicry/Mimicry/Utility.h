@@ -14,6 +14,7 @@ struct MimicryEngine_API UV
 	float U;
 	float V;
 	UV(float U, float V);
+	UV();
 };
 
 class MimicryEngine_API Utility

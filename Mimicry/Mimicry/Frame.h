@@ -10,6 +10,6 @@ public:
 	Frame();
 	Frame(UV uv0, UV uv1, UV uv2, UV uv3);
 	~Frame();
-	UV* GetUV();
+	UV GetUV(int index);
 };
 

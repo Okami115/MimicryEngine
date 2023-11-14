@@ -2,6 +2,7 @@
 
 Frame::Frame()
 {
+
 }
 
 Frame::Frame(UV uv0, UV uv1, UV uv2, UV uv3)
@@ -16,7 +17,7 @@ Frame::~Frame()
 {
 }
 
-UV* Frame::GetUV()
+UV Frame::GetUV(int index)
 {
-	return uv;
+	return uv[index];
 }

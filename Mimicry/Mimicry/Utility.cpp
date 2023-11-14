@@ -49,3 +49,9 @@ UV::UV(float U, float V)
 	this->U = U;
 	this->V = V;
 }
+
+UV::UV()
+{
+	U = 0;
+	V = 0;
+}

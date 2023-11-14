@@ -40,6 +40,7 @@ Sprite::~Sprite()
 
 void Sprite::Draw2D()
 {
+	SetVertices(animation->PlayAnimation());
 	renderer->DrawSprite(model, texture->texture2D);
 }
 
