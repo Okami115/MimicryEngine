@@ -1,8 +1,9 @@
 #include "InputManager.h"
+#include "Engine/Window.h"
 
-InputManager::InputManager(GLFWwindow* window)
+InputManager::InputManager(Window* window)
 {
-	this->window = window;
+	this->window = window->GetWindowPtr();
 }
 
 InputManager::~InputManager()

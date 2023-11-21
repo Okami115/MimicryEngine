@@ -1,12 +1,13 @@
 #pragma once
 #include"glfw3.h"
+#include "Engine/Window.h"
 
 class InputManager
 {
 private:
 	GLFWwindow* window;
 public:
-	InputManager(GLFWwindow* window);
+	InputManager(Window* window);
 	~InputManager();
 
 	bool GetKeyDown(GLFWkeyfun key);

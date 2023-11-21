@@ -7,12 +7,12 @@
 class MyGame : public BaseGame
 {
 
-	Triangle* triangle;
-	Rectangle* rectangle;
-	Sprite* sprite;
-	float trianglePosX = 0.005;
-	float triangleRotarion = 1.0f;
-	float triangleScale = 0.01f;
+	Sprite* background;
+	Sprite* obstacle;
+	Sprite* Sonic;
+
+	int sonicSpeed;
+	vec3 sonicPos;
 
 public:
 	MyGame();
@@ -21,4 +21,5 @@ public:
 	void Init() override;
 	void Update() override;
 	void Deinit() override;
+	void CheckInputs();
 };

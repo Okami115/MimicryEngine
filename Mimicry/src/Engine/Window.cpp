@@ -14,6 +14,11 @@ Window::~Window()
 
 }
 
+GLFWwindow* Window::GetWindowPtr()
+{
+    return windowPtr;
+}
+
 bool Window::CreateWindow(int width, int height, const char* title)
 {
     GLFWwindow* window;

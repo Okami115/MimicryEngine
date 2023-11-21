@@ -7,6 +7,9 @@ struct MimicryEngine_API vec3
 	float x;
 	float y;
 	float z;
+
+	vec3(float x, float y, float z);
+	vec3();
 };
 
 struct MimicryEngine_API UV

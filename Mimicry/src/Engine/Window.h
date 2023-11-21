@@ -11,6 +11,7 @@ private:
 public:
 	Window();
 	~Window();
+	GLFWwindow* GetWindowPtr();
 	bool CreateWindow(int width, int height, const char* title);
 	bool WindowShouldClose();
 	void SwapBuffers();

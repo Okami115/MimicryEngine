@@ -1,6 +1,7 @@
 #include "Entity.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "../Mimicry/Utility.h"
 
 Entity::Entity(Renderer* renderer)
 {

@@ -42,7 +42,7 @@ Sprite::~Sprite()
 
 void Sprite::Draw2D()
 {
-	SetVertices(animation->PlayAnimation());
+	//SetVertices(animation->PlayAnimation());
 
 	//renderer->CreateVecBuffer(animation->PlayAnimation(), indices, verticesSize ,indicesSize, vertexAttributeSize, VAO, VBO, EBO);
 	renderer->DrawSprite(model, texture->texture2D, VAO);
