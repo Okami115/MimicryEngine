@@ -13,7 +13,7 @@ Sprite::Sprite(Renderer* renderer, float frameDuration) : Entity2D(renderer)
 		0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, //Top Derecha
 		0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,//Bot Derecha
 		-0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,//Bot Izquierda	
-		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f// Top Izquierda
+		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f// Top Izquierdap
 	};
 
 
@@ -42,6 +42,9 @@ Sprite::~Sprite()
 
 void Sprite::Draw2D()
 {
+	SetVertices(animation->PlayAnimation());
+
+	//renderer->CreateVecBuffer(animation->PlayAnimation(), indices, verticesSize ,indicesSize, vertexAttributeSize, VAO, VBO, EBO);
 	renderer->DrawSprite(model, texture->texture2D, VAO);
 }
 

@@ -97,23 +97,19 @@ void Renderer::CreateShaderProgram()
 	shaderProgram = glCreateProgram();
 }
 
-void Renderer::CreateVecBuffer(float* positions, int* indices, int positionsSize, int indicesSize, int atribVertexSize,
+void Renderer::CreateVecBuffer(float* vertices, unsigned int* indices, int verticesSize, int indicesSize, int atribVertexSize,
 	unsigned int& VAO, unsigned int& VBO, unsigned int& EBO)
 {
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-	glGenBuffers(1, &EBO);
-	glBindVertexArray(VAO);
+	GenVAO(VAO);
+	GenBufferObjects(VBO, EBO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * positionsSize, positions, GL_STATIC_DRAW);
+	LoadVertexData(vertices, verticesSize, VAO, VBO);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * indicesSize, indices, GL_STATIC_DRAW);
+
+	LoadIndexData(indices, indicesSize, EBO);
 
 	glVertexAttribPointer(0, atribVertexSize, GL_FLOAT, GL_FALSE, atribVertexSize * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -122,20 +118,20 @@ void Renderer::CreateVecBuffer(float* positions, int* indices, int positionsSize
 
 //---------------------GEN-------------------------------
 
-void Renderer::GenBufferObjects(unsigned int VBO, unsigned int EBO)
+void Renderer::GenBufferObjects(unsigned int& VBO, unsigned int& EBO)
 {
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
 }
 
-void Renderer::GenVAO(unsigned int VAO)
+void Renderer::GenVAO(unsigned int& VAO)
 {
 	glGenVertexArrays(1, &VAO);
 }
 
 //-------------------------LOAD----------------------------
 
-void Renderer::LoadVertexData(float* vertices, int verticesSize, unsigned int VAO, unsigned int VBO)
+void Renderer::LoadVertexData(float* vertices, int verticesSize, unsigned int& VAO, unsigned int& VBO)
 {
 	glBindVertexArray(VAO);
 
@@ -193,7 +189,7 @@ void Renderer::ClearFrame()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::DrawEntity2D(glm::mat4x4& entityModel, unsigned int VAO)
+void Renderer::DrawEntity2D(glm::mat4x4& entityModel, unsigned int& VAO)
 {
 	glUseProgram(shaderProgram);
 
@@ -208,7 +204,7 @@ void Renderer::DrawEntity2D(glm::mat4x4& entityModel, unsigned int VAO)
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
-void Renderer::DrawSprite(glm::mat4x4& entityModel, unsigned int& texture, unsigned int VAO)
+void Renderer::DrawSprite(glm::mat4x4& entityModel, unsigned int& texture, unsigned int& VAO)
 {
 	unsigned int aux = glGetUniformLocation(shaderProgram, "useTexture");
 

@@ -36,7 +36,7 @@ float* Animation::PlayAnimation()
 			timer -= speed;
 			index++;
 
-			if (index > frames.size())
+			if (index > frames.size() - 1)
 				index = 0;
 		}
 
@@ -50,7 +50,7 @@ float* Animation::PlayAnimation()
 		// X,	 Y,	   Z,	 R,    G,	 B,	   A,	 U,    V,
 		0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, currentFrame.GetUV(0).U, currentFrame.GetUV(0).V, //Top Derecha
 		0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, currentFrame.GetUV(1).U, currentFrame.GetUV(1).V,//Bot Derecha
-		-0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, currentFrame.GetUV(2).U, currentFrame.GetUV(2).V,//Bot Izquierda	
+		-0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, currentFrame.GetUV(2).U, currentFrame.GetUV(2).V,//Bot Izquierda
 		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, currentFrame.GetUV(3).U, currentFrame.GetUV(3).V,// Top Izquierda
 	};
 
