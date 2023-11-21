@@ -11,17 +11,17 @@ InputManager::~InputManager()
 
 }
 
-bool InputManager::GetKeyDown(GLFWkeyfun key)
+bool InputManager::GetKeyDown(int key)
 {
-	return glfwSetKeyCallback(window, key) == GLFW_RELEASE;
+	return glfwGetKey(window, key) == GLFW_PRESS;
 }
 
-bool InputManager::GetKey(GLFWkeyfun key)
+bool InputManager::GetKey(int key)
 {
-	return glfwSetKeyCallback(window, key) == GLFW_RELEASE;
+	return glfwGetKey(window, key) == GLFW_PRESS;
 }
 
-bool InputManager::GetKeyUp(GLFWkeyfun key)
+bool InputManager::GetKeyUp(int key)
 {
-	return glfwSetKeyCallback(window, key) == GLFW_RELEASE;
+	return glfwGetKey(window, key) == GLFW_PRESS;
 }

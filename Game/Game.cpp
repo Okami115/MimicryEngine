@@ -50,13 +50,13 @@ void MyGame::Deinit()
 
 void MyGame::CheckInputs()
 {
-	if (!input->GetKeyUp((GLFWkeyfun)GLFW_KEY_A))
+	if (input->GetKey(GLFW_KEY_A))
 	{
 		sonicPos.x = sonicPos.x + Time::DeltaTime();
 		Sonic->SetPos(sonicPos.x, sonicPos.y, sonicPos.z);
 	}
 
-	if (!input->GetKeyUp((GLFWkeyfun)GLFW_KEY_D))
+	if (input->GetKey(GLFW_KEY_D))
 	{
 		sonicPos.x = sonicPos.x - Time::DeltaTime();
 		Sonic->SetPos(sonicPos.x, sonicPos.y, sonicPos.z);

@@ -10,7 +10,7 @@ public:
 	InputManager(Window* window);
 	~InputManager();
 
-	bool GetKeyDown(GLFWkeyfun key);
-	bool GetKey(GLFWkeyfun key);
-	bool GetKeyUp(GLFWkeyfun key);
+	bool GetKeyDown(int key);
+	bool GetKey(int key);
+	bool GetKeyUp(int key);
 };
