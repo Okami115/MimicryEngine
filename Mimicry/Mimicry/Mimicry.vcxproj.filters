@@ -17,6 +17,7 @@
     <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="TIme.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BaseGame\BaseGame.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="TIme.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Source\Shader\TextureFragmentShader.shader" />

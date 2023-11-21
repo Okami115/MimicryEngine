@@ -18,10 +18,11 @@ private:
 	glm::vec3 color;
 
 public:
-	Sprite(Renderer* renderer);
+	Sprite(Renderer* renderer, float frameDuration);
 	Sprite();
 	~Sprite();
 	void Draw2D() override;
+	void AddFrame(UV uv0, UV uv1, UV uv2, UV uv3);
 
 	void SetSprite(std::string path);
 

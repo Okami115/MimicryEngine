@@ -4,6 +4,10 @@
 class MimicryEngine_API Entity
 {
 public:
+	unsigned int VAO;	
+	unsigned int VBO;	
+	unsigned int EBO;	
+
 	// mover a Entity.cpp
 	glm::mat4x4 model;
 	glm::mat4 translation;

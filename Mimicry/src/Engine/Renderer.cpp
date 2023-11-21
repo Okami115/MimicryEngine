@@ -7,15 +7,6 @@
 #include <fstream>
 #include <sstream>
 
-Renderer::Renderer()
-{
-
-}
-
-Renderer::~Renderer()
-{
-}
-
 std::string ReadShader(std::string Path)
 {
 	std::string src;
@@ -44,6 +35,16 @@ std::string ReadShader(std::string Path)
 
 }
 
+//----------------------INIT------------------------------
+
+Renderer::Renderer()
+{
+}
+
+Renderer::~Renderer()
+{
+}
+
 void Renderer::Init()
 {
 	projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
@@ -56,53 +57,6 @@ void Renderer::Init()
 	CreateShaderProgram();
 	InitVertexShader();
 	InitFragmentShader();
-
-	GenVAO();
-	GenBufferObjects();
-}
-
-void Renderer::GenBufferObjects()
-{
-	glGenBuffers(1, &VBO);
-	glGenBuffers(1, &EBO);
-}
-
-void Renderer::GenVAO()
-{
-	glGenVertexArrays(1, &VAO);
-}
-
-void Renderer::LoadVertexData(float* vertices, int verticesSize)
-{
-	glBindVertexArray(VAO);
-
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * verticesSize, vertices, GL_STATIC_DRAW);
-	
-}
-
-void Renderer::LoadIndexData(unsigned int* indices, int indicesSize)
-{
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * indicesSize, indices, GL_STATIC_DRAW);
-}
-
-void Renderer::LoadVertexAttributes(float* vertices)
-{
-	//bindear los buffer para asignar los atributos del vertice
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(1);
-
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(7 * sizeof(float)));
-	glEnableVertexAttribArray(2);
-}
-
-void Renderer::CreateShaderProgram()
-{
-	shaderProgram = glCreateProgram();
 }
 
 void Renderer::InitVertexShader()
@@ -136,6 +90,81 @@ void Renderer::InitFragmentShader()
 
 }
 
+//---------------------CREATE----------------------------
+
+void Renderer::CreateShaderProgram()
+{
+	shaderProgram = glCreateProgram();
+}
+
+void Renderer::CreateVecBuffer(float* positions, int* indices, int positionsSize, int indicesSize, int atribVertexSize,
+	unsigned int& VAO, unsigned int& VBO, unsigned int& EBO)
+{
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
+	glBindVertexArray(VAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * positionsSize, positions, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * indicesSize, indices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, atribVertexSize, GL_FLOAT, GL_FALSE, atribVertexSize * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	glBindVertexArray(0);
+}
+
+//---------------------GEN-------------------------------
+
+void Renderer::GenBufferObjects(unsigned int VBO, unsigned int EBO)
+{
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
+}
+
+void Renderer::GenVAO(unsigned int VAO)
+{
+	glGenVertexArrays(1, &VAO);
+}
+
+//-------------------------LOAD----------------------------
+
+void Renderer::LoadVertexData(float* vertices, int verticesSize, unsigned int VAO, unsigned int VBO)
+{
+	glBindVertexArray(VAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * verticesSize, vertices, GL_STATIC_DRAW);
+	
+}
+
+void Renderer::LoadIndexData(unsigned int* indices, int indicesSize, unsigned int EBO)
+{
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * indicesSize, indices, GL_STATIC_DRAW);
+}
+
+void Renderer::LoadVertexAttributes(float* vertices)
+{
+	//bindear los buffer para asignar los atributos del vertice
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(7 * sizeof(float)));
+	glEnableVertexAttribArray(2);
+}
+
+//-----------------------TRS-------------------------------------
+
 void Renderer::TranslatePosition(glm::mat4& translation, glm::vec3 newPos)
 {
 	glm::mat4 trans = glm::mat4(1.0f);
@@ -157,12 +186,14 @@ void Renderer::Scale(glm::mat4& scale, glm::vec3 scaler)
 	scale = trans * scale;
 }
 
+//-----------------------DRAW--------------------------------
+
 void Renderer::ClearFrame()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::DrawEntity2D(glm::mat4x4& entityModel) 
+void Renderer::DrawEntity2D(glm::mat4x4& entityModel, unsigned int VAO)
 {
 	glUseProgram(shaderProgram);
 
@@ -177,7 +208,7 @@ void Renderer::DrawEntity2D(glm::mat4x4& entityModel)
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
-void Renderer::DrawSprite(glm::mat4x4& entityModel, unsigned int& texture)
+void Renderer::DrawSprite(glm::mat4x4& entityModel, unsigned int& texture, unsigned int VAO)
 {
 	unsigned int aux = glGetUniformLocation(shaderProgram, "useTexture");
 
@@ -193,6 +224,8 @@ void Renderer::DrawSprite(glm::mat4x4& entityModel, unsigned int& texture)
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
+
+//----------------------ERROR-------------------------------
 
 void Renderer::CompileErrorCheck(unsigned int& shader)
 {

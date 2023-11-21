@@ -46,9 +46,6 @@ void main()
 })";
 #pragma endregion
 
-	unsigned int VAO;	//Vertex Array object, stores vertex attributes
-	unsigned int VBO;	//Vertex buffer object, stores vertices data
-	unsigned int EBO;	//Element Buffer Objects, stores indices to specify to OpenGL what vertices t draw
 
 	unsigned int vertexShader;
 	unsigned int fragmentShader;
@@ -63,17 +60,17 @@ public:
 	~Renderer();
 
 	void Init();
-	void ShaderStart();
-	void LoadVertexData(float* vertices, int verticesSize);
-	void LoadIndexData(unsigned int* indices, int indicesSize);
+	void LoadVertexData(float* vertices, int verticesSize, unsigned int VAO, unsigned int VBO);
+	void LoadIndexData(unsigned int* indices, int indicesSize, unsigned int EBO);
 	void LoadVertexAttributes(float* vertices);
 
 	void CreateShaderProgram();
+	void CreateVecBuffer(float* positions, int* indices, int positionsSize, int indicesSize, int atribVertexSize, unsigned int& VAO, unsigned int& VBO, unsigned int& EBO);
 	void InitVertexShader();
     void InitFragmentShader();
 
-	void GenBufferObjects();
-	void GenVAO();
+	void GenBufferObjects(unsigned int VBO, unsigned int EBO);
+	void GenVAO(unsigned int VAO);
 
 	void TranslatePosition(glm::mat4& translation, glm::vec3 newPos);
 	void Rotate(glm::mat4& rotation, float angleInDegrees, glm::vec3 axis);
@@ -81,9 +78,9 @@ public:
 
     void ClearFrame();
 
-	void DrawEntity2D(glm::mat4x4& entityModel);
+	void DrawEntity2D(glm::mat4x4& entityModel, unsigned int VAO);
 
-	void DrawSprite(glm::mat4x4& entityModel, unsigned int& texture);
+	void DrawSprite(glm::mat4x4& entityModel, unsigned int& texture, unsigned int VAO);
 
 	void CompileErrorCheck(unsigned int& shader);
 };

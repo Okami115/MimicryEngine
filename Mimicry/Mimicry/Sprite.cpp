@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
+Sprite::Sprite(Renderer* renderer, float frameDuration) : Entity2D(renderer)
 {
 	verticesSize = 36;
 	indicesSize = 6;
@@ -23,6 +23,8 @@ Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
 		1,2,3
 	};
 
+	animation = new Animation(frameDuration);
+
 	SetVertices(vertex);
 	SetIndices(index);
 	Init();
@@ -40,8 +42,12 @@ Sprite::~Sprite()
 
 void Sprite::Draw2D()
 {
-	SetVertices(animation->PlayAnimation());
-	renderer->DrawSprite(model, texture->texture2D);
+	renderer->DrawSprite(model, texture->texture2D, VAO);
+}
+
+void Sprite::AddFrame(UV uv0, UV uv1, UV uv2, UV uv3)
+{
+	animation->AddFrame(uv0, uv1, uv2, uv3);
 }
 
 void Sprite::SetSprite(std::string path)

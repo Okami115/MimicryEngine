@@ -1,11 +1,14 @@
 #pragma once
 #include "../src/Engine/Exports.h"
 
-class MimicryEngine_API Time
+static class MimicryEngine_API Time
 {
-private:
 
 public:
+	static double oldTime;
+	static float timeSinceStart;
 
+	static float DeltaTime();
+	static float getTime();
 };
 
