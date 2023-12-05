@@ -1,6 +1,0 @@
-Poner Renderer en el constructor de shape
-Emprolijar clase shape y hacer getters y setters de veritces y cosas
-Crear clase triangle
-Crear clase Rectangle
-Añadir __declspec(dllexport) a las clases
-Crear Game y settear la solucion a dll (borrar main)
