@@ -7,8 +7,14 @@ class MimicryEngine_API Animation
 {
 private:
 	Frame currentFrame;
+	int currentFrameCounter;
+	int maxFrameAnimation;
 	std::vector<Frame> frames;
-	float speed;
+	float frameAnimation;
+	float spriteWidth;
+	float spriteHight;
+	float frameWidth;
+	float frameHight;
 	int index;
 	float timer;
 
